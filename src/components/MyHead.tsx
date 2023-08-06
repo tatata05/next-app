@@ -1,12 +1,11 @@
 import Head from "next/head";
-import { NextPage } from "next";
 
 interface MyHeadProps {
   title?: string;
   description?: string;
 }
 
-const MyHead: NextPage<MyHeadProps> = ({ title, description }) => {
+const MyHead = ({ title, description = "勤怠管理アプリ" }: MyHeadProps) => {
   const siteName = "Kintai";
   if (title === undefined) {
     title = siteName;
