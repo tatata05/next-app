@@ -7,15 +7,11 @@ interface MyHeadProps {
 
 const MyHead = ({ title, description = "勤怠管理アプリ" }: MyHeadProps) => {
   const siteName = "Kintai";
-  if (title === undefined) {
-    title = siteName;
-  } else {
-    title = `${title} | ${siteName}`;
-  }
+  const pageTitle = title === undefined ? siteName : `${title} | ${siteName}`;
 
   return (
     <Head>
-      <title>{title}</title>
+      <title>{pageTitle}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
     </Head>
