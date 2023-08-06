@@ -1,8 +1,10 @@
 import Header from "../components/Header";
+import MyHead from "@/components/MyHead";
 
 export default function Home() {
   return (
     <>
+      <MyHead />
       <Header />
       <main className="text-center">
         <h2>ホーム</h2>
