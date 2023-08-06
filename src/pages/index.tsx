@@ -1,4 +1,3 @@
-import MyHead from "../components/MyHead";
 import Header from "../components/Header";
 
 export default function Home() {
