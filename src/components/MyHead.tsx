@@ -13,10 +13,6 @@ const MyHead = ({ title, description = "勤怠管理アプリ" }: MyHeadProps) =
     title = `${title} | ${siteName}`;
   }
 
-  if (description === undefined) {
-    description = "勤怠管理アプリ";
-  }
-
   return (
     <Head>
       <title>{title}</title>
