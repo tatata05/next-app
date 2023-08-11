@@ -4,7 +4,7 @@ import AdminHeader from "@/components/AdminHeader";
 export default function AdminHome() {
   return (
     <>
-      <MyHead />
+      <MyHead title="管理者ホーム" />
       <AdminHeader />
       <main className="text-center">
         <h2 className="mt-5">ホーム</h2>
