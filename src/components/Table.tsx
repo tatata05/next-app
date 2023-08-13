@@ -1,6 +1,6 @@
 type TableArray = {
   rows: rows[];
-  columns: columns[];
+  label: string;
 };
 
 type rows = {
@@ -9,19 +9,13 @@ type rows = {
   email?: string;
 };
 
-type columns = {
-  key: string;
-  label: string;
-};
-
-export default function Table({ rows, columns }: TableArray) {
+export default function Table({ rows, label }: TableArray) {
   return (
     <table className="table text-center w-75 mx-auto">
       <thead>
         <tr>
-          {columns.map((column) => (
-            <th key={column.key}>{column.label}</th>
-          ))}
+          <th>{label}</th>
+          <th>メールアドレス</th>
         </tr>
       </thead>
       <tbody>

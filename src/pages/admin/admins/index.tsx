@@ -26,17 +26,6 @@ const rows = [
   },
 ];
 
-const columns = [
-  {
-    key: "name",
-    label: "管理者名",
-  },
-  {
-    key: "email",
-    label: "メールアドレス",
-  },
-];
-
 export default function AdminAdmins() {
   return (
     <>
@@ -44,7 +33,7 @@ export default function AdminAdmins() {
       <AdminHeader />
       <main className="text-center">
         <h2 className="mt-5 mb-5">管理者一覧</h2>
-        <TableComponent rows={rows} columns={columns} />
+        <TableComponent rows={rows} label="管理者名" />
       </main>
     </>
   );
