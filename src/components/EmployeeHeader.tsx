@@ -6,35 +6,29 @@ export default function AdminHeader() {
     <header className="bg-dark">
       <Stack direction="horizontal" gap={3}>
         {/* TODO : 遷移先が問題ないか最終チェックが必要 */}
-        <Link href="/admin" className="p-2 text-light text-decoration-none">
+        <Link href="/employee" className="p-2 text-light text-decoration-none">
           kintai
         </Link>
         <Link
-          href="/admin/admins"
+          href="/employee/shifts"
           className="p-2 ms-auto text-light text-decoration-none"
         >
-          管理者一覧
+          シフトカレンダー
         </Link>
         <Link
-          href="/admin/admins/new"
+          href="/employee/shifts/new"
           className="p-2 text-light text-decoration-none"
         >
-          管理者登録
+          シフト申請
         </Link>
         <Link
-          href="/admin/employees"
+          href="/employee/absences/new"
           className="p-2 text-light text-decoration-none"
         >
-          従業員一覧
+          欠勤申請
         </Link>
         <Link
-          href="/admin/employees/new"
-          className="p-2 text-light text-decoration-none"
-        >
-          従業員登録
-        </Link>
-        <Link
-          href="/admin/notifications"
+          href="/employee/notifications"
           className="p-2 text-light text-decoration-none"
         >
           通知一覧
