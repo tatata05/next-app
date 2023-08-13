@@ -26,17 +26,6 @@ const rows = [
   },
 ];
 
-const columns = [
-  {
-    key: "name",
-    label: "従業員名",
-  },
-  {
-    key: "email",
-    label: "メールアドレス",
-  },
-];
-
 export default function AdminEmployees() {
   return (
     <>
@@ -44,7 +33,7 @@ export default function AdminEmployees() {
       <AdminHeader />
       <main className="text-center">
         <h2 className="mt-5 mb-5">従業員一覧</h2>
-        <TableComponent rows={rows} columns={columns} />
+        <TableComponent rows={rows} label="従業員名" />
       </main>
     </>
   );
