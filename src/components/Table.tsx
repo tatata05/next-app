@@ -4,9 +4,9 @@ type TableArray = {
 };
 
 type rows = {
-  key?: number;
-  name?: string;
-  email?: string;
+  key: number;
+  name: string;
+  email: string;
 };
 
 export default function Table({ rows, label }: TableArray) {
