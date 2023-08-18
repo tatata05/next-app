@@ -9,7 +9,7 @@ type rows = {
   email: string;
 };
 
-export default function Table({ rows, label }: TableArray) {
+export default function Table({ rows, nameLabel }: TableArray) {
   return (
     <table className="table text-center w-75 mx-auto">
       <thead>
