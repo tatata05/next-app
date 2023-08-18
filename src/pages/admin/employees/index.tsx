@@ -33,7 +33,7 @@ export default function AdminEmployees() {
       <AdminHeader />
       <main className="text-center">
         <h2 className="mt-5 mb-5">従業員一覧</h2>
-        <TableComponent rows={rows} label="従業員名" />
+        <TableComponent rows={rows} nameLabel="従業員名" />
       </main>
     </>
   );
