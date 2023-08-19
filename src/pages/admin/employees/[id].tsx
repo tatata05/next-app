@@ -8,7 +8,7 @@ export default function AdminAdminsShow() {
       <MyHead title="従業員詳細" />
       <AdminHeader />
       <main className="text-center">
-        <h2 className="mt-5 mb-5">従業員詳細</h2>
+        <h2 className="mt-5 mb-3">従業員詳細</h2>
         {/* TODO : nameとemailを取得してきて表示 */}
         <Show
           nameLabel="従業員名"

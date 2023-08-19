@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ShowDetail from "./ShowDetail";
 
 type ShowTypes = {
   nameLabel: string;
@@ -28,40 +29,20 @@ export default function Show({
       {/* TODO : データがなければこちらを表示
           <p>該当するユーザーは存在しません</p> */}
       <div className="row pb-5">
-        <div className="d-flex col-8 mx-auto">
-          <div className="col-6 text-center">{nameLabel}</div>
-          <div className="col-6 text-start">{name}</div>
-        </div>
-        <div className="d-flex col-8 mx-auto mt-4">
-          <div className="col-6 text-center">メールアドレス</div>
-          <div className="col-6 text-start">{email}</div>
-        </div>
+        <ShowDetail detailLabel={nameLabel} detail={name} />
+        <ShowDetail detailLabel="メールアドレス" detail={email} />
         {(() => {
           if (role === "employee") {
             return (
               <>
-                <div className="d-flex col-8 mx-auto mt-4">
-                  <div className="col-6 text-center">性別</div>
-                  <div className="col-6 text-start">{gender}</div>
-                </div>
-                <div className="d-flex col-8 mx-auto mt-4">
-                  <div className="col-6 text-center">年齢</div>
-                  <div className="col-6 text-start">{age}</div>
-                </div>
-                <div className="d-flex col-8 mx-auto mt-4">
-                  <div className="col-6 text-center">住所</div>
-                  <div className="col-6 text-start">{address}</div>
-                </div>
-                <div className="d-flex col-8 mx-auto mt-4">
-                  <div className="col-6 text-center">電話番号</div>
-                  <div className="col-6 text-start">{phone_number}</div>
-                </div>
-                <div className="d-flex col-8 mx-auto mt-4">
-                  <div className="col-6 text-center">緊急連絡先電話番号</div>
-                  <div className="col-6 text-start">
-                    {emergency_phone_number}
-                  </div>
-                </div>
+                <ShowDetail detailLabel="性別" detail={gender} />
+                <ShowDetail detailLabel="年齢" detail={age} />
+                <ShowDetail detailLabel="住所" detail={address} />
+                <ShowDetail detailLabel="電話番号" detail={phone_number} />
+                <ShowDetail
+                  detailLabel="緊急連絡先電話番号"
+                  detail={emergency_phone_number}
+                />
               </>
             );
           }

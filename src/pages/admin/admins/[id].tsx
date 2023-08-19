@@ -10,7 +10,7 @@ export default function AdminAdminsShow() {
       <main className="text-center">
         {/* TODO : 詳細がログインしているユーザーの場合はこちらを表示
         <h2 className="mt-5 mb-5">マイページ</h2> */}
-        <h2 className="mt-5 mb-5">管理者詳細</h2>
+        <h2 className="mt-5 mb-3">管理者詳細</h2>
         {/* TODO : nameとemailを取得してきて表示 */}
         <Show nameLabel="管理者名" name="管理者1" email="example.gmail.com" />
       </main>
