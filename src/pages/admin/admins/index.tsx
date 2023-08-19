@@ -33,7 +33,7 @@ export default function AdminAdmins() {
       <AdminHeader />
       <main className="text-center">
         <h2 className="mt-5 mb-5">管理者一覧</h2>
-        <TableComponent rows={rows} nameLabel="管理者名" />
+        <TableComponent rows={rows} label="管理者名" />
       </main>
     </>
   );

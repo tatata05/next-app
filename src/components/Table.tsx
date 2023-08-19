@@ -1,6 +1,6 @@
 type TableArray = {
   rows: rows[];
-  nameLabel: string;
+  label: string;
 };
 
 type rows = {
@@ -14,7 +14,7 @@ export default function Table({ rows, nameLabel }: TableArray) {
     <table className="table text-center w-75 mx-auto">
       <thead>
         <tr>
-          <th>{nameLabel}</th>
+          <th>{label}</th>
           <th>メールアドレス</th>
         </tr>
       </thead>
