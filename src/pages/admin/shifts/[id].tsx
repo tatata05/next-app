@@ -1,6 +1,7 @@
 import ShiftShow from "@/components/ShiftAbsenceShow";
 import AdminHeader from "@/components/AdminHeader";
 import MyHead from "@/components/MyHead";
+import StatusButton from "@/components/StatusButton";
 
 export default function AdminAdminsShow() {
   // 仮の時間を設定
@@ -18,8 +19,11 @@ export default function AdminAdminsShow() {
           startTime={startTime.toLocaleString()}
           endTime={endTime.toLocaleString()}
           status="未承認"
-          link="/"
         />
+        <div className="d-flex justify-content-center col-8 mx-auto text-center">
+          <StatusButton link="/" statusLabel="承認" />
+          <StatusButton link="/" statusLabel="却下" />
+        </div>
       </main>
     </>
   );
