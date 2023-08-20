@@ -1,6 +1,6 @@
 import AdminHeader from "@/components/AdminHeader";
 import MyHead from "@/components/MyHead";
-import Show from "@/components/Show";
+import EmployeeShow from "@/components/UserShow";
 
 export default function AdminAdminsShow() {
   return (
@@ -10,7 +10,7 @@ export default function AdminAdminsShow() {
       <main className="text-center">
         <h2 className="mt-5 mb-3">従業員詳細</h2>
         {/* TODO : nameとemailを取得してきて表示 */}
-        <Show
+        <EmployeeShow
           nameLabel="従業員名"
           name="従業員1"
           email="example.gmail.com"

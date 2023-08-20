@@ -13,7 +13,7 @@ type ShowTypes = {
   role?: string;
 };
 
-export default function Show({
+export default function UserShow({
   nameLabel,
   name,
   email,

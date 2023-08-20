@@ -31,6 +31,7 @@ export default function AdminShifts() {
       <AdminHeader />
       <main className="text-center">
         <h2 className="mt-5 mb-5">シフト一覧</h2>
+        {/* TODO : シフト未申請従業員がいればここに表示 */}
         <div className="mx-5">
           <Calender rows={rows} />
         </div>
