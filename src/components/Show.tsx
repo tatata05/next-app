@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ShowDetail from "./ShowDetail";
 
-type ShowTypes = {
+type ShowType = {
   nameLabel: string;
   name: string;
   email: string;
@@ -23,7 +23,7 @@ export default function Show({
   phone_number,
   emergency_phone_number,
   role,
-}: ShowTypes) {
+}: ShowType) {
   return (
     <div className="text-center">
       {/* TODO : データがなければこちらを表示
