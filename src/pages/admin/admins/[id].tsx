@@ -2,6 +2,17 @@ import AdminHeader from "@/components/AdminHeader";
 import MyHead from "@/components/MyHead";
 import AdminShow from "@/components/UserShow";
 
+const rows = [
+  {
+    detailLabel: "管理者名",
+    detail: "管理者1",
+  },
+  {
+    detailLabel: "メールアドレス",
+    detail: "example.gmail.com",
+  },
+];
+
 export default function AdminAdminsShow() {
   return (
     <>
@@ -12,11 +23,7 @@ export default function AdminAdminsShow() {
         <h2 className="mt-5 mb-5">マイページ</h2> */}
         <h2 className="mt-5 mb-3">管理者詳細</h2>
         {/* TODO : nameとemailを取得してきて表示 */}
-        <AdminShow
-          nameLabel="管理者名"
-          name="管理者1"
-          email="example.gmail.com"
-        />
+        <AdminShow rows={rows} />
       </main>
     </>
   );
