@@ -1,52 +1,24 @@
 import Link from "next/link";
 import ShowDetail from "./ShowDetail";
 
-type ShowType = {
-  nameLabel: string;
-  name: string;
-  email: string;
-  gender?: string;
-  age?: number;
-  address?: string;
-  phone_number?: string;
-  emergency_phone_number?: string;
-  role?: string;
+type Row = {
+  rows: Rows[];
 };
 
-export default function Show({
-  nameLabel,
-  name,
-  email,
-  gender,
-  age,
-  address,
-  phone_number,
-  emergency_phone_number,
-  role,
-}: ShowType) {
+type Rows = {
+  detailLabel: string;
+  detail?: string | number;
+};
+
+export default function Show({ rows }: Row) {
   return (
     <div className="text-center">
       {/* TODO : データがなければこちらを表示
           <p>該当するユーザーは存在しません</p> */}
       <div className="row pb-5">
-        <ShowDetail detailLabel={nameLabel} detail={name} />
-        <ShowDetail detailLabel="メールアドレス" detail={email} />
-        {(() => {
-          if (role === "employee") {
-            return (
-              <>
-                <ShowDetail detailLabel="性別" detail={gender} />
-                <ShowDetail detailLabel="年齢" detail={age} />
-                <ShowDetail detailLabel="住所" detail={address} />
-                <ShowDetail detailLabel="電話番号" detail={phone_number} />
-                <ShowDetail
-                  detailLabel="緊急連絡先電話番号"
-                  detail={emergency_phone_number}
-                />
-              </>
-            );
-          }
-        })()}
+        {rows.map((row) => (
+          <ShowDetail detailLabel={row.detailLabel} detail={row.detail} />
+        ))}
       </div>
       {/* TODO : Linkの修正 */}
       <div className="d-flex justify-content-center col-8 mx-auto text-center">
