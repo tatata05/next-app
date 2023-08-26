@@ -2,7 +2,7 @@ import AdminHeader from "@/components/AdminHeader";
 import MyHead from "@/components/MyHead";
 import Link from "next/link";
 
-export default function AdminAdminsNew() {
+export default function AdminSessions() {
   return (
     <>
       <MyHead title="管理者ログイン" />
