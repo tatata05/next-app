@@ -1,6 +1,6 @@
 import EmployeeHeader from "@/components/EmployeeHeader";
 import MyHead from "@/components/MyHead";
-import Calender from "@/components/Calender";
+import Calendar from "@/components/Calendar";
 
 // TODO : カレンダー表示内容を取得
 const rows = [
@@ -41,7 +41,7 @@ export default function EmployeeShifts() {
       <main className="text-center">
         <h2 className="mt-5 mb-5">シフトカレンダー</h2>
         <div className="mx-5">
-          <Calender rows={rows} />
+          <Calendar rows={rows} />
         </div>
       </main>
     </>

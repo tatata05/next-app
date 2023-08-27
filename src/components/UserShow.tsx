@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ShowDetail from "./ShowDetail";
 
-type Row = {
+type ShowArray = {
   rows: ShowProps[];
 };
 
@@ -11,7 +11,7 @@ type ShowProps = {
   detail?: string | number;
 };
 
-export default function UserShow({ rows }: Row) {
+export default function UserShow({ rows }: ShowArray) {
   return (
     <div className="text-center">
       {/* TODO : データがなければこちらを表示
