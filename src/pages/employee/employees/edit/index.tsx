@@ -48,13 +48,13 @@ const rows = [
   },
 ];
 
-export default function AdminEmployeeEdit() {
+export default function EmployeeEmployeeEdit() {
   return (
     <>
-      <MyHead title="従業員編集" />
+      <MyHead title="アカウント編集" />
       <AdminHeader />
       <main className="text-center">
-        <h2 className="mt-5 mb-3">従業員編集</h2>
+        <h2 className="mt-5 mb-3">アカウント編集</h2>
         <Form action="/" submitLabel="編集を保存する" rows={rows} />
       </main>
     </>
