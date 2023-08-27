@@ -14,17 +14,17 @@ const rows = [
   },
 ];
 
-export default function AdminSessions() {
+export default function EmployeeSessions() {
   return (
     <>
-      <MyHead title="管理者ログイン" />
+      <MyHead title="従業員ログイン" />
       <Header />
       <main className="text-center">
-        <h2 className="mt-5 mb-3">管理者ログイン</h2>
-        <Form action="/" submitLabel="管理者としてログインする" rows={rows} />
+        <h2 className="mt-5 mb-3">従業員ログイン</h2>
+        <Form action="/" submitLabel="従業員としてログインする" rows={rows} />
         <div className="mt-3">
           {/* TODO : 遷移先調整 */}
-          <Link href="/">ゲスト管理者ログイン</Link>
+          <Link href="/">ゲスト従業員ログイン</Link>
         </div>
       </main>
     </>

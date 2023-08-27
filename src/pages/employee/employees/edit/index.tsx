@@ -1,4 +1,4 @@
-import AdminHeader from "@/components/AdminHeader";
+import EmployeeHeader from "@/components/EmployeeHeader";
 import MyHead from "@/components/MyHead";
 import Form from "@/components/From";
 
@@ -52,7 +52,7 @@ export default function EmployeeEmployeeEdit() {
   return (
     <>
       <MyHead title="アカウント編集" />
-      <AdminHeader />
+      <EmployeeHeader />
       <main className="text-center">
         <h2 className="mt-5 mb-3">アカウント編集</h2>
         <Form action="/" submitLabel="編集を保存する" rows={rows} />

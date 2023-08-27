@@ -1,18 +1,18 @@
 import RadioButton from "./RadioButton";
 
-type Rows = {
+type Props = {
   action: string;
   submitLabel: string;
-  rows: Row[];
+  rows: FormProps[];
 };
 
-type Row = {
+type FormProps = {
   nameLabel: string;
   type: string;
   warningLabel?: string;
 };
 
-export default function From({ action, submitLabel, rows }: Rows) {
+export default function From({ action, submitLabel, rows }: Props) {
   return (
     <>
       <form action={action} method="post">
