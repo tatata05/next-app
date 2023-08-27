@@ -1,6 +1,6 @@
 import AdminHeader from "@/components/AdminHeader";
 import MyHead from "@/components/MyHead";
-import EmployeeShow from "@/components/UserShow";
+import UserShow from "@/components/UserShow";
 
 const rows = [
   {
@@ -40,7 +40,7 @@ const rows = [
   },
 ];
 
-export default function AdminAdminsShow() {
+export default function AdminEmployeeShow() {
   return (
     <>
       <MyHead title="従業員詳細" />
@@ -48,7 +48,7 @@ export default function AdminAdminsShow() {
       <main className="text-center">
         <h2 className="mt-5 mb-3">従業員詳細</h2>
         {/* TODO : nameとemailを取得してきて表示 */}
-        <EmployeeShow rows={rows} />
+        <UserShow rows={rows} />
       </main>
     </>
   );

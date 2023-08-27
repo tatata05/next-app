@@ -11,7 +11,7 @@ type ShowProps = {
   detail?: string | number;
 };
 
-export default function Show({ rows }: Row) {
+export default function UserShow({ rows }: Row) {
   return (
     <div className="text-center">
       {/* TODO : データがなければこちらを表示

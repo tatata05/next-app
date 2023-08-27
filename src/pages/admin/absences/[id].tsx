@@ -1,6 +1,6 @@
 import AdminHeader from "@/components/AdminHeader";
 import MyHead from "@/components/MyHead";
-import AbsenceShow from "@/components/ShiftAbsenceShow";
+import ShiftAbsenceShow from "@/components/ShiftAbsenceShow";
 
 export default function AdminAbsencesShow() {
   // 仮の時間を設定
@@ -15,7 +15,7 @@ export default function AdminAbsencesShow() {
         <h2 className="mt-5 mb-5">欠勤詳細</h2>
         {/* TODO : absenceが存在しなければ
         <p>該当する欠勤は存在しません</p> */}
-        <AbsenceShow
+        <ShiftAbsenceShow
           name="従業員1"
           startTime={startTime.toLocaleString()}
           endTime={endTime.toLocaleString()}

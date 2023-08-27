@@ -33,7 +33,7 @@ const rows = [
   },
 ];
 
-export default function AdminNorifications() {
+export default function AdminNotifications() {
   return (
     <>
       <MyHead title="通知一覧" />
