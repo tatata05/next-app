@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Stack from "react-bootstrap/Stack";
 
-export default function AdminHeader() {
+export default function EmployeeHeader() {
   return (
     <header className="bg-dark">
       <Stack direction="horizontal" gap={3}>
