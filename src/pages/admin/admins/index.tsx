@@ -1,6 +1,6 @@
 import MyHead from "@/components/MyHead";
 import AdminHeader from "@/components/AdminHeader";
-import TableComponent from "@/components/Table";
+import Table from "@/components/Table";
 
 // TODO : 仮のデータ、バックエンド側からデータを取得したい
 const rows = [
@@ -33,7 +33,7 @@ export default function AdminAdmins() {
       <AdminHeader />
       <main className="text-center">
         <h2 className="mt-5 mb-5">管理者一覧</h2>
-        <TableComponent rows={rows} nameLabel="管理者名" />
+        <Table rows={rows} nameLabel="管理者名" />
       </main>
     </>
   );

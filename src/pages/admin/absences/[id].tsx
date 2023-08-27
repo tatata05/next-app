@@ -1,6 +1,6 @@
 import AdminHeader from "@/components/AdminHeader";
 import MyHead from "@/components/MyHead";
-import AbsenceShow from "@/components/ShiftAbsenceShow";
+import ShiftAbsenceShow from "@/components/ShiftAbsenceShow";
 import StatusButton from "@/components/StatusButton";
 
 // 仮の時間を設定
@@ -35,7 +35,7 @@ export default function AdminAbsencesShow() {
         <h2 className="mt-5 mb-5">欠勤詳細</h2>
         {/* TODO : absenceが存在しなければ
         <p>該当する欠勤は存在しません</p> */}
-        <AbsenceShow rows={rows} />
+        <ShiftAbsenceShow rows={rows} />
         <div className="d-flex justify-content-center col-8 mx-auto text-center">
           <StatusButton link="/" statusLabel="承認" />
           <StatusButton link="/" statusLabel="却下" />

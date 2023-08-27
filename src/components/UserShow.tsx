@@ -2,22 +2,27 @@ import Link from "next/link";
 import ShowDetail from "./ShowDetail";
 
 type Row = {
-  rows: Rows[];
+  rows: ShowProps[];
 };
 
-type Rows = {
+type ShowProps = {
+  key: number;
   detailLabel: string;
   detail?: string | number;
 };
 
-export default function Show({ rows }: Row) {
+export default function UserShow({ rows }: Row) {
   return (
     <div className="text-center">
       {/* TODO : データがなければこちらを表示
           <p>該当するユーザーは存在しません</p> */}
       <div className="row pb-5">
         {rows.map((row) => (
-          <ShowDetail detailLabel={row.detailLabel} detail={row.detail} />
+          <ShowDetail
+            key={row.key}
+            detailLabel={row.detailLabel}
+            detail={row.detail}
+          />
         ))}
       </div>
       {/* TODO : Linkの修正 */}
