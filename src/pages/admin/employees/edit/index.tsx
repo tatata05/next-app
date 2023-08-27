@@ -4,12 +4,32 @@ import Form from "@/components/From";
 
 const rows = [
   {
-    nameLabel: "管理者名",
+    nameLabel: "従業員名",
     type: "text",
   },
   {
     nameLabel: "メールアドレス",
     type: "email",
+  },
+  {
+    nameLabel: "性別",
+    type: "radio",
+  },
+  {
+    nameLabel: "年齢",
+    type: "number",
+  },
+  {
+    nameLabel: "住所",
+    type: "text",
+  },
+  {
+    nameLabel: "電話番号",
+    type: "text",
+  },
+  {
+    nameLabel: "緊急連絡先電話番号",
+    type: "text",
   },
   {
     nameLabel: "新規パスワード",
@@ -28,13 +48,13 @@ const rows = [
   },
 ];
 
-export default function AdminAdminEdit() {
+export default function AdminEmployeeEdit() {
   return (
     <>
-      <MyHead title="管理者編集" />
+      <MyHead title="従業員編集" />
       <AdminHeader />
       <main className="text-center">
-        <h2 className="mt-5 mb-3">管理者編集</h2>
+        <h2 className="mt-5 mb-3">従業員編集</h2>
         <Form action="/" submitLabel="編集を保存する" rows={rows} />
       </main>
     </>

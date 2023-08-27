@@ -23,7 +23,7 @@ const rows = [
   },
 ];
 
-export default function AdminAdminsNew() {
+export default function AdminAdminNew() {
   return (
     <>
       <MyHead title="管理者登録" />
