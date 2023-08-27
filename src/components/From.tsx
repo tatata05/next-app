@@ -1,3 +1,5 @@
+import RadioButton from "./RadioButton";
+
 type Rows = {
   action: string;
   submitLabel: string;
@@ -17,8 +19,14 @@ export default function From({ action, submitLabel, rows }: Rows) {
         {rows.map((row) => (
           <div className="col-3 mx-auto mt-3">
             <label className="form-label">{row.nameLabel}</label>
-            <input type={row.type} className="form-control"></input>
-            <div className="form-text">{row.warningLabel}</div>
+            {row.type === "radio" ? (
+              <RadioButton />
+            ) : (
+              <>
+                <input type={row.type} className="form-control"></input>
+                <div className="form-text">{row.warningLabel}</div>
+              </>
+            )}
           </div>
         ))}
         <div>
