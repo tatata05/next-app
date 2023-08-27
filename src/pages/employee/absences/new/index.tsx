@@ -1,7 +1,7 @@
 import EmployeeHeader from "@/components/EmployeeHeader";
 import MyHead from "@/components/MyHead";
 
-export default function AdminAbsencesShow() {
+export default function AdminAbsenceNew() {
   return (
     <>
       <MyHead title="欠勤申請" />

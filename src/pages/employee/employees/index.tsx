@@ -1,6 +1,6 @@
 import EmployeeHeader from "@/components/EmployeeHeader";
 import MyHead from "@/components/MyHead";
-import EmployeeShow from "@/components/UserShow";
+import UserShow from "@/components/UserShow";
 
 const rows = [
   {
@@ -40,7 +40,7 @@ const rows = [
   },
 ];
 
-export default function EmployeeEmplyeeShow() {
+export default function EmployeeEmplyees() {
   return (
     <>
       <MyHead title="マイページ" />
@@ -48,7 +48,7 @@ export default function EmployeeEmplyeeShow() {
       <main className="text-center">
         <h2 className="mt-5 mb-3">マイページ</h2>
         {/* TODO : nameとemailを取得してきて表示 */}
-        <EmployeeShow rows={rows} />
+        <UserShow rows={rows} />
       </main>
     </>
   );
