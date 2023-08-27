@@ -1,9 +1,9 @@
 type TableArray = {
-  rows: rows[];
+  rows: Row[];
   nameLabel: string;
 };
 
-type rows = {
+type Row = {
   key: number;
   name: string;
   email: string;

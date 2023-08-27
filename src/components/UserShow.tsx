@@ -2,10 +2,10 @@ import Link from "next/link";
 import ShowDetail from "./ShowDetail";
 
 type Row = {
-  rows: RowType[];
+  rows: ShowProps[];
 };
 
-type RowType = {
+type ShowProps = {
   key: number;
   detailLabel: string;
   detail?: string | number;
