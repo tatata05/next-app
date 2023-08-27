@@ -12,16 +12,14 @@ type Row = {
 
 export default function ShiftAbsenceShow({ rows }: Rows) {
   return (
-    <>
-      <div className="row pb-5">
-        {rows.map((row) => (
-          <ShowDetail
-            key={row.key}
-            detailLabel={row.detailLabel}
-            detail={row.detail}
-          />
-        ))}
-      </div>
-    </>
+    <div className="row pb-5">
+      {rows.map((row) => (
+        <ShowDetail
+          key={row.key}
+          detailLabel={row.detailLabel}
+          detail={row.detail}
+        />
+      ))}
+    </div>
   );
 }
