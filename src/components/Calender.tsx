@@ -18,22 +18,20 @@ type rows = {
 
 export default function Calendar({ rows }: shiftArray) {
   return (
-    <>
-      <div>
-        {/* TODO : デザイン等調整 */}
-        <FullCalendar
-          plugins={[timeGridPlugin]}
-          initialView="timeGridWeek"
-          initialEvents={rows}
-          locale={jaLocale}
-          allDaySlot={false}
-          headerToolbar={{
-            left: "timeGridDay timeGridWeek",
-            center: "title",
-            right: "prev today next",
-          }}
-        />
-      </div>
-    </>
+    <div>
+      {/* TODO : デザイン等調整 */}
+      <FullCalendar
+        plugins={[timeGridPlugin]}
+        initialView="timeGridWeek"
+        initialEvents={rows}
+        locale={jaLocale}
+        allDaySlot={false}
+        headerToolbar={{
+          left: "timeGridDay timeGridWeek",
+          center: "title",
+          right: "prev today next",
+        }}
+      />
+    </div>
   );
 }
