@@ -2,11 +2,11 @@ import FullCalendar from "@fullcalendar/react";
 import jaLocale from "@fullcalendar/core/locales/ja";
 import timeGridPlugin from "@fullcalendar/timegrid";
 
-type shiftArray = {
-  rows: rows[];
+type ShiftProps = {
+  rows: RowType[];
 };
 
-type rows = {
+type RowType = {
   key: number;
   title: string;
   start: Date;
@@ -16,7 +16,7 @@ type rows = {
   borderColor: string;
 };
 
-export default function Calendar({ rows }: shiftArray) {
+export default function Calendar({ rows }: ShiftProps) {
   return (
     <div>
       {/* TODO : デザイン等調整 */}

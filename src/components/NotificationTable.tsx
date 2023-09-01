@@ -1,17 +1,17 @@
 import NotificationDetail from "./NotificationDetail";
 
-type NotificationArray = {
-  rows: NotificationProps[];
+type NotificationProps = {
+  rows: RowType[];
 };
 
-type NotificationProps = {
+type RowType = {
   key: number;
   read: boolean;
   kind: string;
   shiftId?: number;
 };
 
-export default function NotificationTable({ rows }: NotificationArray) {
+export default function NotificationTable({ rows }: NotificationProps) {
   return (
     <table className="table text-cente w-75 mx-auto">
       <thead>

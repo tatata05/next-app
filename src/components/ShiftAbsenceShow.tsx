@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ShowDetail from "./ShowDetail";
 
-type ShowType = {
+type ShowProps = {
   name: string;
   startTime: string;
   endTime: string;
@@ -15,7 +15,7 @@ export default function ShiftAbsenceShow({
   endTime,
   status,
   link,
-}: ShowType) {
+}: ShowProps) {
   return (
     <>
       <div className="row pb-5">
