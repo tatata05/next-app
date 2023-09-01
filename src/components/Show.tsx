@@ -1,17 +1,17 @@
 import Link from "next/link";
 import ShowDetail from "./ShowDetail";
 
-type Row = {
-  rows: ShowProps[];
+type ShowProps = {
+  rows: RowType[];
 };
 
-type ShowProps = {
+type RowType = {
   key: number;
   detailLabel: string;
   detail?: string | number;
 };
 
-export default function Show({ rows }: Row) {
+export default function Show({ rows }: ShowProps) {
   return (
     <div className="text-center">
       {/* TODO : データがなければこちらを表示
