@@ -7,7 +7,7 @@ type NotificationProps = {
 type RowType = {
   key: number;
   read: boolean;
-  kind: string;
+  kind: "application" | "approval_pending" | "unapplied";
   shiftId?: number;
 };
 

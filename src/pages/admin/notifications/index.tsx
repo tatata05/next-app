@@ -3,33 +3,39 @@ import MyHead from "@/components/MyHead";
 import NotificationTable from "@/components/NotificationTable";
 import Link from "next/link";
 
+type KindType = ["application", "approval_pending", "unapplied"];
+
+const application: KindType[0] = "application";
+const approvalPending: KindType[1] = "approval_pending";
+const unapplied: KindType[2] = "unapplied";
+
 const rows = [
   {
     key: 1,
     read: true,
-    kind: "application",
+    kind: application,
     shiftId: 1,
   },
   {
     key: 2,
     read: false,
-    kind: "application",
+    kind: application,
   },
   {
     key: 3,
     read: false,
-    kind: "approval_pending",
+    kind: approvalPending,
     shiftId: 2,
   },
   {
     key: 4,
     read: true,
-    kind: "approval_pending",
+    kind: approvalPending,
   },
   {
     key: 5,
     read: true,
-    kind: "unapplied",
+    kind: unapplied,
   },
 ];
 
