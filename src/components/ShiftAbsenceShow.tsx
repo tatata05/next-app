@@ -1,21 +1,20 @@
 import ShowDetail from "./ShowDetail";
 
-type ShiftAbsenceArray = {
-  rows: ShiftAbsenceProps[];
+type ShiftAbsenceProps = {
+  rows: RowType[];
 };
 
-type ShiftAbsenceProps = {
-  key: number;
+type RowType = {
   detailLabel: string;
   detail: string;
 };
 
-export default function ShiftAbsenceShow({ rows }: ShiftAbsenceArray) {
+export default function ShiftAbsenceShow({ rows }: ShiftAbsenceProps) {
   return (
     <div className="row pb-5">
-      {rows.map((row) => (
+      {rows.map((row, index) => (
         <ShowDetail
-          key={row.key}
+          key={index}
           detailLabel={row.detailLabel}
           detail={row.detail}
         />

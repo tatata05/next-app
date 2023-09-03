@@ -1,17 +1,16 @@
 import NotificationDetail from "./NotificationDetail";
 
-type NotificationArray = {
-  rows: NotificationProps[];
+type NotificationProps = {
+  rows: RowType[];
 };
 
-type NotificationProps = {
-  key: number;
-  read: boolean;
-  kind: string;
+type RowType = {
+  isRead: boolean;
+  kind: "application" | "approval_pending" | "unapplied";
   shiftId?: number;
 };
 
-export default function NotificationTable({ rows }: NotificationArray) {
+export default function NotificationTable({ rows }: NotificationProps) {
   return (
     <table className="table text-cente w-75 mx-auto">
       <thead>
@@ -22,13 +21,14 @@ export default function NotificationTable({ rows }: NotificationArray) {
         </tr>
       </thead>
       <tbody>
-        {rows.map((row) => (
+        {/* TODO: 仮でindexをkeyにしているが、indexの使用は非推奨のため、取得データのIDを利用する */}
+        {rows.map((row, index) => (
           <NotificationDetail
-            key={row.key}
-            read={row.read}
+            key={index}
+            isRead={row.isRead}
             kind={row.kind}
             shiftId={row.shiftId}
-          ></NotificationDetail>
+          />
         ))}
       </tbody>
     </table>

@@ -1,15 +1,14 @@
-type TableArray = {
-  rows: TableProps[];
+type TableProps = {
+  rows: RowType[];
   nameLabel: string;
 };
 
-type TableProps = {
-  key: number;
+type RowType = {
   name: string;
   email: string;
 };
 
-export default function Table({ rows, nameLabel }: TableArray) {
+export default function Table({ rows, nameLabel }: TableProps) {
   return (
     <table className="table text-center w-75 mx-auto">
       <thead>
@@ -19,8 +18,9 @@ export default function Table({ rows, nameLabel }: TableArray) {
         </tr>
       </thead>
       <tbody>
-        {rows.map((row) => (
-          <tr key={row.key}>
+        {/* TODO: 仮でindexをkeyにしているが、indexの使用は非推奨のため、取得データのIDを利用する */}
+        {rows.map((row, index) => (
+          <tr key={index}>
             <td>{row.name}</td>
             <td>{row.email}</td>
           </tr>
