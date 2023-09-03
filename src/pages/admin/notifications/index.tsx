@@ -11,29 +11,24 @@ const unapplied: KindType[2] = "unapplied";
 
 const rows = [
   {
-    key: 1,
     read: true,
     kind: application,
     shiftId: 1,
   },
   {
-    key: 2,
     read: false,
     kind: application,
   },
   {
-    key: 3,
     read: false,
     kind: approvalPending,
     shiftId: 2,
   },
   {
-    key: 4,
     read: true,
     kind: approvalPending,
   },
   {
-    key: 5,
     read: true,
     kind: unapplied,
   },

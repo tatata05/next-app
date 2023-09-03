@@ -7,7 +7,6 @@ type ShiftProps = {
 };
 
 type RowType = {
-  key: number;
   title: string;
   start: Date;
   end: Date;

@@ -4,7 +4,6 @@ type TableProps = {
 };
 
 type RowType = {
-  key: number;
   name: string;
   email: string;
 };
@@ -19,8 +18,9 @@ export default function Table({ rows, nameLabel }: TableProps) {
         </tr>
       </thead>
       <tbody>
-        {rows.map((row) => (
-          <tr key={row.key}>
+        {/* TODO: 仮でindexをkeyにしているが、indexの使用は非推奨のため、取得データのIDを利用する */}
+        {rows.map((row, index) => (
+          <tr key={index}>
             <td>{row.name}</td>
             <td>{row.email}</td>
           </tr>

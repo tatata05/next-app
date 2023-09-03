@@ -6,7 +6,6 @@ type ShowProps = {
 };
 
 type RowType = {
-  key: number;
   detailLabel: string;
   detail?: string | number;
 };
@@ -17,9 +16,10 @@ export default function UserShow({ rows }: ShowProps) {
       {/* TODO : データがなければこちらを表示
           <p>該当するユーザーは存在しません</p> */}
       <div className="row pb-5">
-        {rows.map((row) => (
+        {/* TODO: 仮でindexをkeyにしているが、indexの使用は非推奨のため、取得データのIDを利用する */}
+        {rows.map((row, index) => (
           <ShowDetail
-            key={row.key}
+            key={index}
             detailLabel={row.detailLabel}
             detail={row.detail}
           />

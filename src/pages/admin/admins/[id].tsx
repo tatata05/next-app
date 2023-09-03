@@ -4,12 +4,10 @@ import UserShow from "@/components/UserShow";
 
 const rows = [
   {
-    key: 1,
     detailLabel: "管理者名",
     detail: "管理者1",
   },
   {
-    key: 2,
     detailLabel: "メールアドレス",
     detail: "example.gmail.com",
   },

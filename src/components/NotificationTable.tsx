@@ -5,7 +5,6 @@ type NotificationProps = {
 };
 
 type RowType = {
-  key: number;
   read: boolean;
   kind: "application" | "approval_pending" | "unapplied";
   shiftId?: number;
@@ -22,9 +21,10 @@ export default function NotificationTable({ rows }: NotificationProps) {
         </tr>
       </thead>
       <tbody>
-        {rows.map((row) => (
+        {/* TODO: 仮でindexをkeyにしているが、indexの使用は非推奨のため、取得データのIDを利用する */}
+        {rows.map((row, index) => (
           <NotificationDetail
-            key={row.key}
+            key={index}
             read={row.read}
             kind={row.kind}
             shiftId={row.shiftId}
