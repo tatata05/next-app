@@ -1,26 +1,24 @@
 import Link from "next/link";
 
 type NotificationProps = {
-  key: number;
-  read: boolean;
-  kind: string;
+  isRead: boolean;
+  kind: "application" | "approval_pending" | "unapplied";
   shiftId?: number;
 };
 
 export default function NotificationDetail({
-  key,
-  read,
+  isRead,
   kind,
   shiftId,
 }: NotificationProps) {
   const checkShift = shiftId ? "シフト" : "欠勤";
-  const checkRead = read ? "既読" : "未読";
+  const checkRead = isRead ? "既読" : "未読";
   // TODO : 仮で表示、shiftから開始時刻をとってくる
   const dateTime = "1998/05/17 18:00~";
   switch (kind) {
     case "application":
       return (
-        <tr key={key}>
+        <tr>
           <td>{checkRead}</td>
           {/* TODO : typeカラムの内容によって表示の変更 */}
           <td>
@@ -35,7 +33,7 @@ export default function NotificationDetail({
       );
     case "approval_pending":
       return (
-        <tr key={key}>
+        <tr>
           <td>{checkRead}</td>
           {/* TODO : typeカラムの内容によって表示の変更 */}
           <td>
@@ -50,7 +48,7 @@ export default function NotificationDetail({
       );
     case "unapplied":
       return (
-        <tr key={key}>
+        <tr>
           <td>{checkRead}</td>
           <td>
             <Link href="/">シフト未申請</Link>

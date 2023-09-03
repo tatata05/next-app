@@ -5,7 +5,6 @@ import Calender from "@/components/Calender";
 // TODO : カレンダー表示内容を取得
 const rows = [
   {
-    key: 1,
     title: "シフト申請",
     start: new Date("8 20, 2023 0:00:00"),
     end: new Date("8 20, 2023 5:00:00"),
@@ -14,7 +13,6 @@ const rows = [
     borderColor: "blue",
   },
   {
-    key: 2,
     title: "欠勤申請",
     start: new Date("8 25, 2023 2:00:00"),
     end: new Date("8 25, 2023 4:00:00"),
@@ -23,7 +21,6 @@ const rows = [
     borderColor: "red",
   },
   {
-    key: 3,
     title: "確定",
     start: new Date("8 24, 2023 3:00:00"),
     end: new Date("8 24, 2023 8:00:00"),

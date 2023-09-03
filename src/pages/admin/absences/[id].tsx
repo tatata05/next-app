@@ -9,22 +9,18 @@ const endTime = new Date("5 17, 1998 23:00:00");
 
 const rows = [
   {
-    key: 1,
     detailLabel: "従業員名",
     detail: "I am 従業員",
   },
   {
-    key: 2,
     detailLabel: "開始時間",
     detail: startTime.toLocaleString(),
   },
   {
-    key: 3,
     detailLabel: "終了時間",
     detail: endTime.toLocaleString(),
   },
   {
-    key: 4,
     detailLabel: "承認状況",
     detail: "未承認",
   },
