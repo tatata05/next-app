@@ -5,7 +5,7 @@ type NotificationProps = {
 };
 
 type RowType = {
-  read: boolean;
+  isRead: boolean;
   kind: "application" | "approval_pending" | "unapplied";
   shiftId?: number;
 };
@@ -25,7 +25,7 @@ export default function NotificationTable({ rows }: NotificationProps) {
         {rows.map((row, index) => (
           <NotificationDetail
             key={index}
-            read={row.read}
+            isRead={row.isRead}
             kind={row.kind}
             shiftId={row.shiftId}
           ></NotificationDetail>

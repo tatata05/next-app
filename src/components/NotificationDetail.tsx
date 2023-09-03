@@ -1,18 +1,18 @@
 import Link from "next/link";
 
 type NotificationProps = {
-  read: boolean;
+  isRead: boolean;
   kind: "application" | "approval_pending" | "unapplied";
   shiftId?: number;
 };
 
 export default function NotificationDetail({
-  read,
+  isRead,
   kind,
   shiftId,
 }: NotificationProps) {
   const checkShift = shiftId ? "シフト" : "欠勤";
-  const checkRead = read ? "既読" : "未読";
+  const checkRead = isRead ? "既読" : "未読";
   // TODO : 仮で表示、shiftから開始時刻をとってくる
   const dateTime = "1998/05/17 18:00~";
   switch (kind) {

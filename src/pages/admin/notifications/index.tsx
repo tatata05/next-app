@@ -11,25 +11,25 @@ const unapplied: KindType[2] = "unapplied";
 
 const rows = [
   {
-    read: true,
+    isRead: true,
     kind: application,
     shiftId: 1,
   },
   {
-    read: false,
+    isRead: false,
     kind: application,
   },
   {
-    read: false,
+    isRead: false,
     kind: approvalPending,
     shiftId: 2,
   },
   {
-    read: true,
+    isRead: true,
     kind: approvalPending,
   },
   {
-    read: true,
+    isRead: true,
     kind: unapplied,
   },
 ];
