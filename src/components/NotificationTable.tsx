@@ -28,7 +28,7 @@ export default function NotificationTable({ rows }: NotificationProps) {
             isRead={row.isRead}
             kind={row.kind}
             shiftId={row.shiftId}
-          ></NotificationDetail>
+          />
         ))}
       </tbody>
     </table>
