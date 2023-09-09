@@ -4,7 +4,7 @@ type NotificationProps = {
   rows: RowType[];
 };
 
-type RowType = {
+export type RowType = {
   isRead: boolean;
   kind: "application" | "approval_pending" | "unapplied";
   shiftId?: number;
