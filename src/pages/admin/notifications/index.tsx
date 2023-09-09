@@ -2,35 +2,30 @@ import AdminHeader from "@/components/AdminHeader";
 import MyHead from "@/components/MyHead";
 import NotificationTable from "@/components/NotificationTable";
 import Link from "next/link";
+import { RowType } from "@/components/NotificationTable";
 
-type KindType = ["application", "approval_pending", "unapplied"];
-
-const application: KindType[0] = "application";
-const approvalPending: KindType[1] = "approval_pending";
-const unapplied: KindType[2] = "unapplied";
-
-const rows = [
+const rows: RowType[] = [
   {
     isRead: true,
-    kind: application,
+    kind: "application",
     shiftId: 1,
   },
   {
     isRead: false,
-    kind: application,
+    kind: "application",
   },
   {
     isRead: false,
-    kind: approvalPending,
+    kind: "approval_pending",
     shiftId: 2,
   },
   {
     isRead: true,
-    kind: approvalPending,
+    kind: "approval_pending",
   },
   {
     isRead: true,
-    kind: unapplied,
+    kind: "unapplied",
   },
 ];
 
