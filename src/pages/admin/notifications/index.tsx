@@ -1,8 +1,7 @@
 import AdminHeader from "@/components/AdminHeader";
 import MyHead from "@/components/MyHead";
-import NotificationTable from "@/components/NotificationTable";
+import NotificationTable, { RowType } from "@/components/NotificationTable";
 import Link from "next/link";
-import { RowType } from "@/components/NotificationTable";
 
 const rows: RowType[] = [
   {
