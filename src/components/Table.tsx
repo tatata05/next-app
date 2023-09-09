@@ -1,15 +1,15 @@
-type TableArray = {
-  rows: rows[];
+type TableProps = {
+  rows: RowType[];
   nameLabel: string;
 };
 
-type rows = {
+type RowType = {
   key: number;
   name: string;
   email: string;
 };
 
-export default function Table({ rows, nameLabel }: TableArray) {
+export default function Table({ rows, nameLabel }: TableProps) {
   return (
     <table className="table text-center w-75 mx-auto">
       <thead>
