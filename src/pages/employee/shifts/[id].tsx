@@ -1,6 +1,6 @@
-import AdminHeader from "@/components/AdminHeader";
+import ShiftShow from "@/components/ShiftAbsenceShow";
+import EmployeeHeader from "@/components/EmployeeHeader";
 import MyHead from "@/components/MyHead";
-import ShiftAbsenceShow from "@/components/ShiftAbsenceShow";
 import StatusButton from "@/components/StatusButton";
 
 // 仮の時間を設定
@@ -26,19 +26,18 @@ const rows = [
   },
 ];
 
-export default function AdminAbsencesShow() {
+export default function EmployeeShiftShow() {
   return (
     <>
-      <MyHead title="欠勤詳細" />
-      <AdminHeader />
+      <MyHead title="シフト詳細" />
+      <EmployeeHeader />
       <main className="text-center">
-        <h2 className="mt-5 mb-5">欠勤詳細</h2>
-        {/* TODO : absenceが存在しなければ
-        <p>該当する欠勤は存在しません</p> */}
-        <ShiftAbsenceShow rows={rows} />
+        <h2 className="mt-5 mb-3">シフト詳細</h2>
+        {/* TODO : <p>該当するシフトは存在しません</p> */}
+        <ShiftShow rows={rows} />
         <div className="d-flex justify-content-center col-8 mx-auto text-center">
-          <StatusButton link="/" statusLabel="承認" />
-          <StatusButton link="/" statusLabel="却下" />
+          <StatusButton link="/" statusLabel="編集" />
+          <StatusButton link="/" statusLabel="取消" />
         </div>
       </main>
     </>

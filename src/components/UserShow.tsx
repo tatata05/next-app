@@ -29,7 +29,7 @@ export default function UserShow({ rows }: ShowProps) {
       <div className="d-flex justify-content-center col-8 mx-auto text-center">
         <div className="col-3">
           {/* TODO : Linkの修正 */}
-          {/* TODO : current_userと一致or従業員詳細であれば表示 それ以外は非表示 */}
+          {/* TODO : current_userと一致orAdminかつ従業員詳細であれば表示 それ以外は非表示 */}
           <Link href="/" className="btn btn-primary">
             編集
           </Link>

@@ -25,6 +25,8 @@ export default function NotificationDetail({
             <Link href="/">{checkShift}承認</Link>
           </td>
           <td>
+            {/* TODO : adminの場合は以下を表示
+            〇〇さんから{checkShift}が申請されました。({dateTime}) */}
             {checkShift}が承認されました。({dateTime})
           </td>
         </tr>
@@ -38,6 +40,8 @@ export default function NotificationDetail({
             <Link href="/">{checkShift}却下</Link>
           </td>
           <td>
+            {/* TODO : adminの場合は以下を表示
+            〇〇さんの{checkShift}申請を承認(却下)してください。({dateTime}) */}
             {checkShift}が却下されました。({dateTime})
           </td>
         </tr>
@@ -49,7 +53,11 @@ export default function NotificationDetail({
           <td>
             <Link href="/">シフト未申請</Link>
           </td>
-          <td>シフトを申請しておりません。早急に申請してください。</td>
+          <td>
+            {/* TODO : Adminの場合は以下を表示
+              〇〇さんがシフト申請をしておりません。 */}
+            シフトを申請しておりません。早急に申請してください。
+          </td>
         </tr>
       );
   }

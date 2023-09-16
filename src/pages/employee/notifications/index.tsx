@@ -1,4 +1,4 @@
-import AdminHeader from "@/components/AdminHeader";
+import EmployeeHeader from "@/components/EmployeeHeader";
 import MyHead from "@/components/MyHead";
 import NotificationTable, { RowType } from "@/components/NotificationTable";
 import Link from "next/link";
@@ -28,11 +28,11 @@ const rows: RowType[] = [
   },
 ];
 
-export default function AdminNotifications() {
+export default function EmployeeNorifications() {
   return (
     <>
       <MyHead title="通知一覧" />
-      <AdminHeader />
+      <EmployeeHeader />
       <main className="text-center">
         <h2 className="mt-5 mb-5">通知一覧</h2>
         <div className="col-6 mb-4">
@@ -41,11 +41,11 @@ export default function AdminNotifications() {
             未読のみ
           </Link>
           {/* TODO : 表示一覧のソート機能(admin_notifications_path(:read => "true")) */}
-          <Link href="/" className="btn btn-outline-primary">
+          <Link href="/" className="btn btn-outline-primary ms-2">
             既読のみ
           </Link>
           {/* TODO : 表示一覧のソート機能(admin_notifications_path) */}
-          <Link href="/" className="btn btn-outline-primary">
+          <Link href="/" className="btn btn-outline-primary ms-2">
             既読のみ
           </Link>
         </div>
