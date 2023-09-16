@@ -11,6 +11,7 @@ export default function Home() {
         <div>
           <div className="mt-3">従業員ログイン</div>
           <div className="mt-3">管理者ログイン</div>
+          テスト
         </div>
       </main>
     </>
