@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "simple-git-hooks > /dev/null"
   },
   "dependencies": {
     "@fullcalendar/core": "^6.1.8",
@@ -26,6 +27,20 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "prettier": "3.0.0"
+    "lint-staged": "^14.0.1",
+    "prettier": "3.0.0",
+    "simple-git-hooks": "^2.9.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write --loglevel=error",
+      "eslint --fix --quiet"
+    ],
+    "{public,src}/**/*.{html,gql,graphql,json}": [
+      "prettier --write --loglevel=error"
+    ]
   }
 }
