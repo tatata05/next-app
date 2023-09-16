@@ -16,8 +16,8 @@ export default function From({ action, submitLabel, rows }: FormArray) {
   return (
     <>
       <form action={action} method="post">
-        {rows.map((row) => (
-          <div className="col-3 mx-auto mt-3">
+        {rows.map((row, index) => (
+          <div className="col-3 mx-auto mt-3" key={index}>
             <label className="form-label">{row.nameLabel}</label>
             {row.type === "radio" ? (
               <RadioButton />
