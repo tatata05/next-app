@@ -9,7 +9,7 @@ export default function Home() {
       <main className="text-center">
         <h2 className="mt-5">ホーム</h2>
         <div>
-          <div className="mt-3">従業員ログイン</div>
+          <div className="mt-3">従業員ログインテスト</div>
           <div className="mt-3">管理者ログイン</div>
         </div>
       </main>
