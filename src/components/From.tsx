@@ -23,7 +23,7 @@ export default function From({ action, submitLabel, rows }: FormArray) {
               <RadioButton />
             ) : (
               <>
-                <input type={row.type} className="form-control"></input>
+                <input type={row.type} className="form-control" />
                 <div className="form-text">{row.warningLabel}</div>
               </>
             )}
