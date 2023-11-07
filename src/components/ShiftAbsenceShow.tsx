@@ -1,6 +1,6 @@
 import ShowDetail from "./ShowDetail";
 
-type ShowProps = {
+type ShiftAbsenceProps = {
   rows: RowType[];
 };
 
@@ -9,7 +9,7 @@ type RowType = {
   detail: string;
 };
 
-export default function ShiftAbsenceShow({ rows }: ShowProps) {
+export default function ShiftAbsenceShow({ rows }: ShiftAbsenceProps) {
   return (
     <div className="row pb-5">
       {rows.map((row, index) => (

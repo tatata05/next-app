@@ -1,6 +1,6 @@
 import AdminHeader from "@/components/AdminHeader";
 import MyHead from "@/components/MyHead";
-import Calender from "@/components/Calender";
+import Calendar from "@/components/Calendar";
 
 // TODO : カレンダー表示内容を取得
 const rows = [
@@ -31,7 +31,7 @@ export default function AdminShifts() {
         <h2 className="mt-5 mb-5">シフト一覧</h2>
         {/* TODO : シフト未申請従業員がいればここに表示 */}
         <div className="mx-5">
-          <Calender rows={rows} />
+          <Calendar rows={rows} />
         </div>
       </main>
     </>
