@@ -1,4 +1,4 @@
-import { AdminApi, EmployeeApi } from "@/api/typescript-axios";
+import { AdminApi } from "@/api/typescript-axios";
 import { Configuration } from "@/api/typescript-axios/configuration";
 import axios from "axios";
 

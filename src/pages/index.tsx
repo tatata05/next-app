@@ -4,7 +4,7 @@ import MyHead from "@/components/MyHead";
 import KintaiAdmin from "@/api/KintaiAdmin";
 
 export default function Home() {
-  // TODO: そのうち削除する。レスポンスの取得を適切に取れているか確認のためにとりあえず記載。
+  // TODO: そのうち削除する。レスポンスを適切に取得できているか確認のためにとりあえず記載。
 
   // getCurrentAdmin などパラメータにidが含まれていない時にうまくいかない。調査中
   const aaaa = async () => {
