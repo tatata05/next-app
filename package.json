@@ -8,12 +8,14 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "simple-git-hooks > /dev/null",
-    "format": "prettier --check ./src"
+    "format": "prettier --check ./src",
+    "generate-typescript-axios": "openapi-generator-cli generate -g typescript-axios -i ./src/api/swagger.yaml -o ./src/api/typescript-axios"
   },
   "dependencies": {
     "@fullcalendar/core": "^6.1.8",
     "@fullcalendar/react": "^6.1.8",
     "@fullcalendar/timegrid": "^6.1.8",
+    "@openapitools/openapi-generator-cli": "^2.7.0",
     "@types/node": "20.4.4",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
