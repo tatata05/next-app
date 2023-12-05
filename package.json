@@ -22,14 +22,17 @@
     "bootstrap": "^5.3.1",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
+    "js-cookie": "^3.0.5",
     "next": "13.4.12",
     "next-transpile-modules": "^10.0.1",
     "react": "18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.48.2",
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "lint-staged": "^14.0.1",
     "prettier": "3.0.0",
     "simple-git-hooks": "^2.9.0"
