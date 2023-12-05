@@ -12,11 +12,11 @@ export default function EmployeeShiftEdit() {
         <form action="/" method="post">
           <div>
             <label>開始時刻</label>
-            <input type="datetime-local" className="ms-3"></input>
+            <input type="datetime-local" className="ms-3" />
           </div>
           <div className="mt-3">
             <label>終了時刻</label>
-            <input type="datetime-local" className="ms-3"></input>
+            <input type="datetime-local" className="ms-3" />
           </div>
           <div>
             <button type="submit" className="btn btn-primary mt-4">
