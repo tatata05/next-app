@@ -26,7 +26,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -63,7 +63,7 @@ paths:
                       totalCount:
                         type: integer
                         example: 30
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -77,7 +77,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -91,7 +91,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -124,7 +124,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -147,7 +147,7 @@ paths:
                       - id
                       - name
                       - email
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -161,7 +161,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -175,7 +175,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -189,7 +189,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -216,7 +216,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -239,7 +239,7 @@ paths:
                       - id
                       - name
                       - email
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -253,7 +253,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -267,7 +267,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -281,7 +281,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -308,7 +308,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -345,7 +345,7 @@ paths:
                       totalCount:
                         type: integer
                         example: 30
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -359,7 +359,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -373,7 +373,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -406,7 +406,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -444,7 +444,7 @@ paths:
                       - id
                       - name
                       - email
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -458,7 +458,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -472,7 +472,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -486,7 +486,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -518,9 +518,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '204':
+        "204":
           description: Success
-        '400':
+        "400":
           description: BadRequest
           content:
             application/json:
@@ -534,7 +534,7 @@ paths:
                     type: array
                     items:
                       example: 不正な入力値です。
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -548,7 +548,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -562,7 +562,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -589,7 +589,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -610,7 +610,7 @@ paths:
                       required:
                         - id
                         - name
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -624,7 +624,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -638,7 +638,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -665,7 +665,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -714,7 +714,7 @@ paths:
                         - endTime
                         - status
                         - employee
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -728,7 +728,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -742,7 +742,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -775,7 +775,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -822,7 +822,7 @@ paths:
                       - endTime
                       - status
                       - employee
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -836,7 +836,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -850,7 +850,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -864,7 +864,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -910,9 +910,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '204':
+        "204":
           description: Success
-        '400':
+        "400":
           description: BadRequest
           content:
             application/json:
@@ -926,7 +926,7 @@ paths:
                     type: array
                     items:
                       example: 不正な入力値です。
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -940,7 +940,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -954,7 +954,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -968,7 +968,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -1001,7 +1001,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -1031,7 +1031,7 @@ paths:
                       - id
                       - status
                       - shift
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -1045,7 +1045,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -1059,7 +1059,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -1073,7 +1073,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -1119,9 +1119,9 @@ paths:
                     - rejected
                   example: approved
       responses:
-        '204':
+        "204":
           description: Success
-        '400':
+        "400":
           description: BadRequest
           content:
             application/json:
@@ -1135,7 +1135,7 @@ paths:
                     type: array
                     items:
                       example: 不正な入力値です。
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -1149,7 +1149,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -1163,7 +1163,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -1177,7 +1177,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -1209,7 +1209,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -1274,7 +1274,7 @@ paths:
                       totalCount:
                         type: integer
                         example: 30
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -1288,7 +1288,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -1302,7 +1302,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -1335,9 +1335,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '204':
+        "204":
           description: Success
-        '400':
+        "400":
           description: BadRequest
           content:
             application/json:
@@ -1351,7 +1351,7 @@ paths:
                     type: array
                     items:
                       example: 不正な入力値です。
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -1365,7 +1365,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -1379,7 +1379,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -1393,7 +1393,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -1420,7 +1420,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -1456,7 +1456,7 @@ paths:
                         - startTime
                         - endTime
                         - status
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -1470,7 +1470,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -1484,7 +1484,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -1524,9 +1524,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '201':
+        "201":
           description: Success
-        '400':
+        "400":
           description: BadRequest
           content:
             application/json:
@@ -1540,7 +1540,7 @@ paths:
                     type: array
                     items:
                       example: 不正な入力値です。
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -1554,7 +1554,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -1568,7 +1568,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -1601,7 +1601,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -1635,7 +1635,7 @@ paths:
                       - startTime
                       - endTime
                       - status
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -1649,7 +1649,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -1663,7 +1663,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -1677,7 +1677,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -1723,9 +1723,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '204':
+        "204":
           description: Success
-        '400':
+        "400":
           description: BadRequest
           content:
             application/json:
@@ -1739,7 +1739,7 @@ paths:
                     type: array
                     items:
                       example: 不正な入力値です。
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -1753,7 +1753,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -1767,7 +1767,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -1781,7 +1781,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -1813,9 +1813,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '204':
+        "204":
           description: Success
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -1829,7 +1829,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -1843,7 +1843,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -1857,7 +1857,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -1895,9 +1895,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '201':
+        "201":
           description: Success
-        '400':
+        "400":
           description: BadRequest
           content:
             application/json:
@@ -1911,7 +1911,7 @@ paths:
                     type: array
                     items:
                       example: 不正な入力値です。
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -1925,7 +1925,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -1939,7 +1939,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -1966,7 +1966,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -1991,7 +1991,7 @@ paths:
                         - id
                         - startTime
                         - endTime
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -2005,7 +2005,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -2019,7 +2019,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -2033,7 +2033,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -2066,7 +2066,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -2096,7 +2096,7 @@ paths:
                       - id
                       - status
                       - shift
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -2110,7 +2110,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -2124,7 +2124,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -2138,7 +2138,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -2170,9 +2170,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '204':
+        "204":
           description: Success
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -2186,7 +2186,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -2200,7 +2200,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -2214,7 +2214,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -2246,7 +2246,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -2299,7 +2299,7 @@ paths:
                       totalCount:
                         type: integer
                         example: 30
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -2313,7 +2313,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -2327,7 +2327,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -2360,9 +2360,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '204':
+        "204":
           description: Success
-        '400':
+        "400":
           description: BadRequest
           content:
             application/json:
@@ -2376,7 +2376,7 @@ paths:
                     type: array
                     items:
                       example: 不正な入力値です。
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -2390,7 +2390,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -2404,7 +2404,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -2418,7 +2418,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -2445,7 +2445,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -2483,7 +2483,7 @@ paths:
                       - id
                       - name
                       - email
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -2497,7 +2497,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -2511,7 +2511,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -2525,7 +2525,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -2552,7 +2552,7 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '200':
+        "200":
           description: Success
           content:
             application/json:
@@ -2571,7 +2571,7 @@ paths:
                     required:
                       - id
                       - name
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -2585,7 +2585,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -2599,7 +2599,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '404':
+        "404":
           description: NotFound
           content:
             application/json:
@@ -2613,7 +2613,7 @@ paths:
                     type: array
                     items:
                       example: 対象データが存在しません。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -2660,9 +2660,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '201':
+        "201":
           description: Success
-        '400':
+        "400":
           description: BadRequest
           content:
             application/json:
@@ -2676,7 +2676,7 @@ paths:
                     type: array
                     items:
                       example: 不正な入力値です。
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -2690,7 +2690,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -2704,7 +2704,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -2753,9 +2753,9 @@ paths:
                   type: string
                   example: current password
       responses:
-        '204':
+        "204":
           description: Success
-        '400':
+        "400":
           description: BadRequest
           content:
             application/json:
@@ -2769,7 +2769,7 @@ paths:
                     type: array
                     items:
                       example: 不正な入力値です。
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -2783,7 +2783,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -2797,7 +2797,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -2823,9 +2823,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '204':
+        "204":
           description: Success
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -2839,7 +2839,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -2853,7 +2853,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -2890,7 +2890,7 @@ paths:
                   type: string
                   example: password
       responses:
-        '201':
+        "201":
           description: Success
           content:
             application/json:
@@ -2913,7 +2913,7 @@ paths:
                       - uid
                       - accessToken
                       - client
-        '400':
+        "400":
           description: BadRequest
           content:
             application/json:
@@ -2927,7 +2927,7 @@ paths:
                     type: array
                     items:
                       example: 不正な入力値です。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -2954,9 +2954,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '204':
+        "204":
           description: Success
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -2970,7 +2970,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -2984,7 +2984,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -3046,9 +3046,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '201':
+        "201":
           description: Success
-        '400':
+        "400":
           description: BadRequest
           content:
             application/json:
@@ -3062,7 +3062,7 @@ paths:
                     type: array
                     items:
                       example: 不正な入力値です。
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -3076,7 +3076,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -3090,7 +3090,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -3154,9 +3154,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '204':
+        "204":
           description: Success
-        '400':
+        "400":
           description: BadRequest
           content:
             application/json:
@@ -3170,7 +3170,7 @@ paths:
                     type: array
                     items:
                       example: 不正な入力値です。
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -3184,7 +3184,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -3198,7 +3198,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -3235,7 +3235,7 @@ paths:
                   type: string
                   example: password
       responses:
-        '201':
+        "201":
           description: Success
           content:
             application/json:
@@ -3258,7 +3258,7 @@ paths:
                       - uid
                       - accessToken
                       - client
-        '400':
+        "400":
           description: BadRequest
           content:
             application/json:
@@ -3272,7 +3272,7 @@ paths:
                     type: array
                     items:
                       example: 不正な入力値です。
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
@@ -3299,9 +3299,9 @@ paths:
         - accessToken: []
         - client: []
       responses:
-        '204':
+        "204":
           description: Success
-        '401':
+        "401":
           description: Unauthorized
           content:
             application/json:
@@ -3315,7 +3315,7 @@ paths:
                     type: array
                     items:
                       example: ログインしてください
-        '403':
+        "403":
           description: Forbidden
           content:
             application/json:
@@ -3329,7 +3329,7 @@ paths:
                     type: array
                     items:
                       example: 権限がありません
-        '500':
+        "500":
           description: InternalServerError
           content:
             application/json:
