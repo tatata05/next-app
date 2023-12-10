@@ -1,21 +1,38 @@
-import KintaiEmployee from "@/api/KintaiEmployee";
+// import KintaiEmployee from "@/api/KintaiEmployee";
 import Header from "../components/Header";
 import MyHead from "@/components/MyHead";
 import KintaiAdmin from "@/api/KintaiAdmin";
+// import Router from "next/router";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   // TODO: そのうち削除する。レスポンスを適切に取得できているか確認のためにとりあえず記載。
-  const aaaa = async () => {
-    const hoge = await KintaiAdmin.getAdmin(1);
-    console.log(hoge.data);
-  };
-  aaaa();
+  const [data, setData] = useState<any>(null);
+  const [isLoading, setLoading] = useState<boolean>(true);
 
-  const bbbb = async () => {
-    const fuga = await KintaiEmployee.getCurrentEmployee();
-    console.log(fuga.data);
-  };
-  bbbb();
+  useEffect(() => {
+    (async () => {
+      const hoge = await KintaiAdmin.getAdmin(1);
+      setData(hoge.data.data?.name);
+      setLoading(false);
+    })();
+  }, []);
+
+  if (isLoading) return <p>Loading...</p>;
+  if (!data) return <p>No profile data</p>;
+
+  // const bbbb = async () => {
+  //   try {
+  //     const fuga = await KintaiEmployee.getCurrentEmployee();
+  //     console.log(fuga.data);
+  //   } catch (error: any) {
+  //     if (error?.response.status === 401) {
+  //       Router.push("/admin/sessions");
+  //     }
+  //     console.log(error);
+  //   }
+  // };
+  // bbbb();
 
   return (
     <>
