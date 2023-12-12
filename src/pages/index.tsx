@@ -21,19 +21,6 @@ export default function Home() {
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No profile data</p>;
 
-  // const bbbb = async () => {
-  //   try {
-  //     const fuga = await KintaiEmployee.getCurrentEmployee();
-  //     console.log(fuga.data);
-  //   } catch (error: any) {
-  //     if (error?.response.status === 401) {
-  //       Router.push("/admin/sessions");
-  //     }
-  //     console.log(error);
-  //   }
-  // };
-  // bbbb();
-
   return (
     <>
       <MyHead />
