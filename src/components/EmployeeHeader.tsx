@@ -2,11 +2,10 @@ import Link from "next/link";
 import Stack from "react-bootstrap/Stack";
 import KintaiEmployee from "@/api/KintaiEmployee";
 import { useEffect, useState } from "react";
-import { GetUnappliedEmployees200ResponseDataInner } from "@/api/typescript-axios";
+import { GetUnappliedEmployees200ResponseDataInner as CurrentEmployee } from "@/api/typescript-axios";
 
 export default function EmployeeHeader() {
-  const [currentEmployee, setCurrentEmployee] =
-    useState<GetUnappliedEmployees200ResponseDataInner>();
+  const [currentEmployee, setCurrentEmployee] = useState<CurrentEmployee>();
 
   useEffect(() => {
     (async () => {

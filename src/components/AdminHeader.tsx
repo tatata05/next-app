@@ -2,11 +2,10 @@ import Link from "next/link";
 import Stack from "react-bootstrap/Stack";
 import KintaiAdmin from "@/api/KintaiAdmin";
 import { useEffect, useState } from "react";
-import { GetAdmins200ResponseDataInner } from "@/api/typescript-axios";
+import { GetAdmins200ResponseDataInner as CurrentAdmin } from "@/api/typescript-axios";
 
 export default function AdminHeader() {
-  const [currentAdmin, setCurrentAdmin] =
-    useState<GetAdmins200ResponseDataInner>();
+  const [currentAdmin, setCurrentAdmin] = useState<CurrentAdmin>();
 
   useEffect(() => {
     (async () => {
