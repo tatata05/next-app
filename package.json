@@ -8,26 +8,31 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "simple-git-hooks > /dev/null",
-    "format": "prettier --check ./src"
+    "format": "prettier --check ./src",
+    "generate-typescript-axios": "openapi-generator-cli generate -g typescript-axios -i ./src/api/swagger.yaml -o ./src/api/typescript-axios"
   },
   "dependencies": {
     "@fullcalendar/core": "^6.1.8",
     "@fullcalendar/react": "^6.1.8",
     "@fullcalendar/timegrid": "^6.1.8",
+    "@openapitools/openapi-generator-cli": "^2.7.0",
     "@types/node": "20.4.4",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "bootstrap": "^5.3.1",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
+    "js-cookie": "^3.0.5",
     "next": "13.4.12",
     "next-transpile-modules": "^10.0.1",
     "react": "18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.48.2",
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "eslint-config-prettier": "^9.0.0",
     "lint-staged": "^14.0.1",

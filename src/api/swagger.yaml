@@ -1,0 +1,3360 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: KINTAI
+  description: 勤怠管理アプリ「KINTAI」
+servers:
+  - url: http://localhost:8003
+    description: ローカル環境
+tags:
+  - name: admin
+    description: 管理者の操作
+  - name: employee
+    description: 従業員の操作
+  - name: auth
+    description: devise関連の操作
+paths:
+  /api/v1/admin/admins:
+    get:
+      summary: 全ての管理者の取得
+      tags:
+        - admin
+      operationId: getAdmins
+      deprecated: false
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: example 管理者
+                        email:
+                          type: string
+                          example: kintai@example.com
+                      required:
+                        - id
+                        - name
+                        - email
+                  pagenation:
+                    type: object
+                    properties:
+                      current:
+                        type: integer
+                        example: 1
+                      pages:
+                        type: integer
+                        example: 3
+                      totalCount:
+                        type: integer
+                        example: 30
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/admin/admins/{id}:
+    get:
+      summary: 管理者詳細の取得
+      tags:
+        - admin
+      operationId: getAdmin
+      deprecated: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: example 管理者
+                      email:
+                        type: string
+                        example: kintai@example.com
+                    required:
+                      - id
+                      - name
+                      - email
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/admin/admins/profile:
+    get:
+      summary: ログインしている管理者の取得
+      tags:
+        - admin
+      operationId: getCurrentAdmin
+      deprecated: false
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: example 管理者
+                      email:
+                        type: string
+                        example: kintai@example.com
+                    required:
+                      - id
+                      - name
+                      - email
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/admin/employees:
+    get:
+      summary: 全ての従業員の取得
+      tags:
+        - admin
+      operationId: getEmployees
+      deprecated: false
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: example 従業員
+                        email:
+                          type: string
+                          example: kintai_employee@example.com
+                      required:
+                        - id
+                        - name
+                        - email
+                  pagenation:
+                    type: object
+                    properties:
+                      current:
+                        type: integer
+                        example: 1
+                      pages:
+                        type: integer
+                        example: 3
+                      totalCount:
+                        type: integer
+                        example: 30
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/admin/employees/{id}:
+    get:
+      summary: 従業員詳細の取得
+      tags:
+        - admin
+      operationId: getEmployee
+      deprecated: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: example 従業員
+                      email:
+                        type: string
+                        example: kintai_employee@example.com
+                      gender:
+                        type: string
+                        example: 男性
+                      age:
+                        type: integer
+                        example: 25
+                      address:
+                        type: string
+                        example: 東京都千代田区丸の内1-1-1
+                      phoneNumber:
+                        type: string
+                        example: 080-0000-0000
+                      emergencyPhoneNumber:
+                        type: string
+                        example: 090-0000-0000
+                    required:
+                      - id
+                      - name
+                      - email
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+    delete:
+      summary: 従業員削除
+      tags:
+        - admin
+      operationId: deleteEmployee
+      deprecated: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "204":
+          description: Success
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: BadRequest
+                  message:
+                    type: array
+                    items:
+                      example: 不正な入力値です。
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/admin/employees/unapplied_employees:
+    get:
+      summary: シフト未申請従業員の取得
+      tags:
+        - admin
+      operationId: getUnappliedEmployees
+      deprecated: false
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: example 従業員
+                      required:
+                        - id
+                        - name
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/admin/shifts:
+    get:
+      summary: シフトカレンダー関連の取得
+      tags:
+        - admin
+      operationId: getShiftsForAdmin
+      deprecated: false
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        startTime:
+                          type: string
+                          example: 2030/01/01 18:00
+                        endTime:
+                          type: string
+                          example: 2030/01/01 23:00
+                        status:
+                          type: string
+                          enum:
+                            - unapproved
+                            - approved
+                            - absenceApplication
+                          example: unapproved
+                        absenceId:
+                          type: integer
+                          example: 1
+                        employee:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            name:
+                              type: string
+                              example: example 従業員
+                          required:
+                            - id
+                            - name
+                      required:
+                        - id
+                        - startTime
+                        - endTime
+                        - status
+                        - employee
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/admin/shifts/{id}:
+    get:
+      summary: シフト詳細の取得
+      tags:
+        - admin
+      operationId: getShiftForAdmin
+      deprecated: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      startTime:
+                        type: string
+                        example: 2030/01/01 18:00
+                      endTime:
+                        type: string
+                        example: 2030/01/01 23:00
+                      status:
+                        type: string
+                        enum:
+                          - unapproved
+                          - approved
+                          - absenceApplication
+                        example: unapproved
+                      absenceId:
+                        type: integer
+                        example: 1
+                      employee:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: example 従業員
+                        required:
+                          - id
+                          - name
+                    required:
+                      - id
+                      - startTime
+                      - endTime
+                      - status
+                      - employee
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+    patch:
+      summary: シフトステータスの変更
+      tags:
+        - admin
+      operationId: updateShiftStatus
+      deprecated: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: ステータス情報
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum:
+                    - approved
+                    - rejected
+                  example: approved
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "204":
+          description: Success
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: BadRequest
+                  message:
+                    type: array
+                    items:
+                      example: 不正な入力値です。
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/admin/absences/{id}:
+    get:
+      summary: 欠勤詳細の取得
+      tags:
+        - admin
+      operationId: getAbsenceForAdmin
+      deprecated: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      status:
+                        type: string
+                        enum:
+                          - unapproved
+                          - approved
+                          - rejected
+                        example: unapproved
+                      startTime:
+                        type: string
+                        example: 2030/01/01 18:00
+                      endTime:
+                        type: string
+                        example: 2030/01/01 23:00
+                    required:
+                      - id
+                      - status
+                      - shift
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+    patch:
+      summary: 欠勤ステータスの変更
+      tags:
+        - admin
+      operationId: updateAbsenceStatus
+      deprecated: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      requestBody:
+        description: ステータス情報
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum:
+                    - approved
+                    - rejected
+                  example: approved
+      responses:
+        "204":
+          description: Success
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: BadRequest
+                  message:
+                    type: array
+                    items:
+                      example: 不正な入力値です。
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/admin/notifications:
+    get:
+      summary: 全ての通知の取得
+      tags:
+        - admin
+      operationId: getNotificationsForAdmin
+      deprecated: false
+      parameters:
+        - name: read
+          in: query
+          schema:
+            type: boolean
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      read:
+                        type: boolean
+                        example: true
+                      kind:
+                        type: string
+                        enum:
+                          - shift
+                          - absence
+                        example: shift
+                      itemId:
+                        type: integer
+                        example: 10
+                      status:
+                        type: string
+                        enum:
+                          - application
+                          - approval
+                          - approvalPending
+                          - rejected
+                          - unapplied
+                        example: application
+                      employee:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: example 従業員
+                        required:
+                          - id
+                          - name
+                      shiftTime:
+                        type: string
+                        example: 2030/01/01 18:00-23:00
+                    required:
+                      - id
+                      - read
+                      - status
+                  pagenation:
+                    type: object
+                    properties:
+                      current:
+                        type: integer
+                        example: 1
+                      pages:
+                        type: integer
+                        example: 3
+                      totalCount:
+                        type: integer
+                        example: 30
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/admin/notifications/{id}:
+    patch:
+      summary: 通知の既読/未読の変更
+      tags:
+        - admin
+      operationId: updateNotificationForAdmin
+      deprecated: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "204":
+          description: Success
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: BadRequest
+                  message:
+                    type: array
+                    items:
+                      example: 不正な入力値です。
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/employee/shifts:
+    get:
+      summary: シフトカレンダー関連の取得
+      tags:
+        - employee
+      operationId: getShiftsForEmployee
+      deprecated: false
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        startTime:
+                          type: string
+                          example: 2030/01/01 18:00
+                        endTime:
+                          type: string
+                          example: 2030/01/01 23:00
+                        status:
+                          type: string
+                          enum:
+                            - unapproved
+                            - approved
+                            - absenceApplication
+                          example: unapproved
+                        absenceId:
+                          type: integer
+                          example: 1
+                      required:
+                        - id
+                        - startTime
+                        - endTime
+                        - status
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+    post:
+      summary: シフト申請の作成
+      tags:
+        - employee
+      operationId: createShift
+      deprecated: false
+      requestBody:
+        description: シフト申請情報
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                startTime:
+                  type: string
+                  example: 2030/01/01 18:00
+                endTime:
+                  type: string
+                  example: 2030/01/01 23:00
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "201":
+          description: Success
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: BadRequest
+                  message:
+                    type: array
+                    items:
+                      example: 不正な入力値です。
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/employee/shifts/{id}:
+    get:
+      summary: シフト詳細の取得
+      tags:
+        - employee
+      operationId: getShiftForEmployee
+      deprecated: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      startTime:
+                        type: string
+                        example: 2030/01/01 18:00
+                      endTime:
+                        type: string
+                        example: 2030/01/01 23:00
+                      status:
+                        type: string
+                        enum:
+                          - unapproved
+                          - approved
+                          - absenceApplication
+                        example: unapproved
+                      absenceId:
+                        type: integer
+                        example: 1
+                    required:
+                      - id
+                      - startTime
+                      - endTime
+                      - status
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+    patch:
+      summary: シフト申請の編集
+      tags:
+        - employee
+      operationId: updateShift
+      deprecated: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: シフト編集情報
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                startTime:
+                  type: string
+                  example: 2030/01/01 18:00
+                endTime:
+                  type: string
+                  example: 2030/01/01 23:00
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "204":
+          description: Success
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: BadRequest
+                  message:
+                    type: array
+                    items:
+                      example: 不正な入力値です。
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+    delete:
+      summary: シフト申請の削除
+      tags:
+        - employee
+      operationId: deleteShift
+      deprecated: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "204":
+          description: Success
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/employee/absences:
+    post:
+      summary: 欠勤申請の作成
+      tags:
+        - employee
+      operationId: createAbsence
+      deprecated: false
+      requestBody:
+        description: 欠勤申請情報
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                shiftId:
+                  type: integer
+                  example: 1
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "201":
+          description: Success
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: BadRequest
+                  message:
+                    type: array
+                    items:
+                      example: 不正な入力値です。
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/employee/absences/new:
+    get:
+      summary: 欠勤申請可能なシフトの取得
+      tags:
+        - employee
+      operationId: getNewAbsence
+      deprecated: false
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        startTime:
+                          type: string
+                          example: 2030/01/01 18:00
+                        endTime:
+                          type: string
+                          example: 2030/01/01 23:00
+                      required:
+                        - id
+                        - startTime
+                        - endTime
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/employee/absences/{id}:
+    get:
+      summary: 欠勤詳細の取得
+      tags:
+        - employee
+      operationId: getAbsenceForEmployee
+      deprecated: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      status:
+                        type: string
+                        enum:
+                          - unapproved
+                          - approved
+                          - rejected
+                        example: unapproved
+                      startTime:
+                        type: string
+                        example: 2030/01/01 18:00
+                      endTime:
+                        type: string
+                        example: 2030/01/01 23:00
+                    required:
+                      - id
+                      - status
+                      - shift
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+    delete:
+      summary: 欠勤申請の削除
+      tags:
+        - employee
+      operationId: deleteAbsence
+      deprecated: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "204":
+          description: Success
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/employee/notifications:
+    get:
+      summary: 全ての通知の取得
+      tags:
+        - employee
+      operationId: getNotificationsForEmployee
+      deprecated: false
+      parameters:
+        - name: read
+          in: query
+          schema:
+            type: boolean
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      read:
+                        type: boolean
+                        example: true
+                      kind:
+                        type: string
+                        enum:
+                          - shift
+                          - absence
+                        example: shift
+                      itemId:
+                        type: integer
+                        example: 10
+                      status:
+                        type: string
+                        enum:
+                          - application
+                          - approval
+                          - approvalPending
+                          - rejected
+                          - unapplied
+                        example: application
+                      shiftTime:
+                        type: string
+                        example: 2030/01/01 18:00-23:00
+                    required:
+                      - id
+                      - read
+                      - status
+                  pagenation:
+                    type: object
+                    properties:
+                      current:
+                        type: integer
+                        example: 1
+                      pages:
+                        type: integer
+                        example: 3
+                      totalCount:
+                        type: integer
+                        example: 30
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/employee/notifications/{id}:
+    patch:
+      summary: 通知の既読/未読の変更
+      tags:
+        - employee
+      operationId: updateNotificationForEmployee
+      deprecated: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "204":
+          description: Success
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: BadRequest
+                  message:
+                    type: array
+                    items:
+                      example: 不正な入力値です。
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/employee/mypage:
+    get:
+      summary: マイページ情報の取得
+      tags:
+        - employee
+      operationId: getMypage
+      deprecated: false
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: example 従業員
+                      email:
+                        type: string
+                        example: kintai_employee@example.com
+                      gender:
+                        type: string
+                        example: 男性
+                      age:
+                        type: integer
+                        example: 25
+                      address:
+                        type: string
+                        example: 東京都千代田区丸の内1-1-1
+                      phoneNumber:
+                        type: string
+                        example: 080-0000-0000
+                      emergencyPhoneNumber:
+                        type: string
+                        example: 090-0000-0000
+                    required:
+                      - id
+                      - name
+                      - email
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/employee/mypage/profile:
+    get:
+      summary: ログインしている従業員の取得
+      tags:
+        - employee
+      operationId: getCurrentEmployee
+      deprecated: false
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: example 従業員
+                    required:
+                      - id
+                      - name
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "404":
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: NotFound
+                  message:
+                    type: array
+                    items:
+                      example: 対象データが存在しません。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/admin_auth:
+    post:
+      summary: 管理者作成
+      tags:
+        - auth
+      operationId: createAdmin
+      deprecated: false
+      requestBody:
+        description: 管理者登録情報
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: admin管理者
+                email:
+                  type: string
+                  example: admin@example.com
+                password:
+                  type: string
+                  example: password
+                passwordConfirmation:
+                  type: string
+                  example: password
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "201":
+          description: Success
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: BadRequest
+                  message:
+                    type: array
+                    items:
+                      example: 不正な入力値です。
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+    put:
+      summary: 管理者編集
+      tags:
+        - auth
+      operationId: updateAdmin
+      deprecated: false
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      requestBody:
+        description: 管理者編集情報
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: admin管理者
+                email:
+                  type: string
+                  example: admin@example.com
+                password:
+                  type: string
+                  example: new password
+                passwordConfirmation:
+                  type: string
+                  example: new password
+                currentPassword:
+                  type: string
+                  example: current password
+      responses:
+        "204":
+          description: Success
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: BadRequest
+                  message:
+                    type: array
+                    items:
+                      example: 不正な入力値です。
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+    delete:
+      summary: 管理者削除
+      tags:
+        - auth
+      operationId: deleteAdmin
+      deprecated: false
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "204":
+          description: Success
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/admin_auth/sign_in:
+    post:
+      summary: 管理者ログイン
+      tags:
+        - auth
+      operationId: signInAdmin
+      deprecated: false
+      requestBody:
+        description: 管理者ログイン情報
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: admin@example.com
+                password:
+                  type: string
+                  example: password
+      responses:
+        "201":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      uid:
+                        type: string
+                        example: kintai@example.com
+                      accessToken:
+                        type: string
+                        example: wSvoPf8sj1JYUgKxUUIPEA
+                      client:
+                        type: string
+                        example: APdMEmm8QBZdnDQVinItiQ
+                    required:
+                      - uid
+                      - accessToken
+                      - client
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: BadRequest
+                  message:
+                    type: array
+                    items:
+                      example: 不正な入力値です。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/admin_auth/sign_out:
+    delete:
+      summary: 管理者ログアウト
+      tags:
+        - auth
+      operationId: signOutAdmin
+      deprecated: false
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "204":
+          description: Success
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/employee_auth:
+    post:
+      summary: 従業員作成
+      tags:
+        - auth
+      operationId: createEmployee
+      deprecated: false
+      requestBody:
+        description: 従業員登録情報
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: employee従業員
+                email:
+                  type: string
+                  example: employee@example.com
+                gender:
+                  type: string
+                  example: 男性
+                age:
+                  type: integer
+                  example: 25
+                address:
+                  type: string
+                  example: 東京都千代田区丸の内1-1-1
+                phoneNumber:
+                  type: string
+                  example: 080-0000-0000
+                emergencyPhoneNumber:
+                  type: string
+                  example: 090-0000-0000
+                password:
+                  type: string
+                  example: password
+                passwordConfirmation:
+                  type: string
+                  example: password
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "201":
+          description: Success
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: BadRequest
+                  message:
+                    type: array
+                    items:
+                      example: 不正な入力値です。
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+    put:
+      summary: 従業員編集
+      tags:
+        - auth
+      operationId: updateEmployee
+      deprecated: false
+      requestBody:
+        description: 従業員編集情報
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: employee従業員
+                email:
+                  type: string
+                  example: employee@example.com
+                gender:
+                  type: string
+                  example: 男性
+                age:
+                  type: integer
+                  example: 25
+                address:
+                  type: string
+                  example: 東京都千代田区丸の内1-1-1
+                phoneNumber:
+                  type: string
+                  example: 080-0000-0000
+                emergencyPhoneNumber:
+                  type: string
+                  example: 090-0000-0000
+                password:
+                  type: string
+                  example: new password
+                passwordConfirmation:
+                  type: string
+                  example: new password
+                currentPassword:
+                  type: string
+                  example: current password
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "204":
+          description: Success
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: BadRequest
+                  message:
+                    type: array
+                    items:
+                      example: 不正な入力値です。
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/employee_auth/sign_in:
+    post:
+      summary: 従業員ログイン
+      tags:
+        - auth
+      operationId: signInEmployee
+      deprecated: false
+      requestBody:
+        description: 従業員ログイン情報
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: admin@example.com
+                password:
+                  type: string
+                  example: password
+      responses:
+        "201":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      uid:
+                        type: string
+                        example: kintai@example.com
+                      accessToken:
+                        type: string
+                        example: wSvoPf8sj1JYUgKxUUIPEA
+                      client:
+                        type: string
+                        example: APdMEmm8QBZdnDQVinItiQ
+                    required:
+                      - uid
+                      - accessToken
+                      - client
+        "400":
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: BadRequest
+                  message:
+                    type: array
+                    items:
+                      example: 不正な入力値です。
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+  /api/v1/employee_auth/sign_out:
+    delete:
+      summary: 従業員ログアウト
+      tags:
+        - auth
+      operationId: signOutEmployee
+      deprecated: false
+      security:
+        - uid: []
+        - accessToken: []
+        - client: []
+      responses:
+        "204":
+          description: Success
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Unauthorized
+                  message:
+                    type: array
+                    items:
+                      example: ログインしてください
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: Forbidden
+                  message:
+                    type: array
+                    items:
+                      example: 権限がありません
+        "500":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorCode:
+                    type: string
+                    example: InternalServerError
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      example: サーバーエラー
+components:
+  securitySchemes:
+    uid:
+      type: apiKey
+      in: header
+      name: uid
+    accessToken:
+      type: apiKey
+      in: header
+      name: accessToken
+    client:
+      type: apiKey
+      in: header
+      name: client

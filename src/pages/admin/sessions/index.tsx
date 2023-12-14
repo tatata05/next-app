@@ -7,10 +7,12 @@ const rows = [
   {
     nameLabel: "メールアドレス",
     type: "email",
+    registerLabel: "email",
   },
   {
     nameLabel: "パスワード",
     type: "password",
+    registerLabel: "password",
   },
 ];
 
