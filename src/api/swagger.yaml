@@ -63,6 +63,9 @@ paths:
                       totalCount:
                         type: integer
                         example: 30
+                required:
+                  - data
+                  - pagenation
         "401":
           description: Unauthorized
           content:
@@ -74,9 +77,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -88,9 +90,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -102,10 +103,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/admin/admins/{id}:
     get:
       summary: 管理者詳細の取得
@@ -147,6 +146,8 @@ paths:
                       - id
                       - name
                       - email
+                required:
+                  - data
         "401":
           description: Unauthorized
           content:
@@ -158,9 +159,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -172,9 +172,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -186,9 +185,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -200,10 +198,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/admin/admins/profile:
     get:
       summary: ログインしている管理者の取得
@@ -239,6 +235,8 @@ paths:
                       - id
                       - name
                       - email
+                required:
+                  - data
         "401":
           description: Unauthorized
           content:
@@ -250,9 +248,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -264,9 +261,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -278,9 +274,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -292,10 +287,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/admin/employees:
     get:
       summary: 全ての従業員の取得
@@ -345,6 +338,9 @@ paths:
                       totalCount:
                         type: integer
                         example: 30
+                required:
+                  - data
+                  - pagenation
         "401":
           description: Unauthorized
           content:
@@ -356,9 +352,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -370,9 +365,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -384,10 +378,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/admin/employees/{id}:
     get:
       summary: 従業員詳細の取得
@@ -444,6 +436,8 @@ paths:
                       - id
                       - name
                       - email
+                required:
+                  - data
         "401":
           description: Unauthorized
           content:
@@ -455,9 +449,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -469,9 +462,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -483,9 +475,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -497,10 +488,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
     delete:
       summary: 従業員削除
       tags:
@@ -531,9 +520,8 @@ paths:
                     type: string
                     example: BadRequest
                   message:
-                    type: array
-                    items:
-                      example: 不正な入力値です。
+                    type: string
+                    example: 不正な入力値です。
         "401":
           description: Unauthorized
           content:
@@ -545,9 +533,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -559,9 +546,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -573,10 +559,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/admin/employees/unapplied_employees:
     get:
       summary: シフト未申請従業員の取得
@@ -610,6 +594,8 @@ paths:
                       required:
                         - id
                         - name
+                required:
+                  - data
         "401":
           description: Unauthorized
           content:
@@ -621,9 +607,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -635,9 +620,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -649,10 +633,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/admin/shifts:
     get:
       summary: シフトカレンダー関連の取得
@@ -714,6 +696,8 @@ paths:
                         - endTime
                         - status
                         - employee
+                required:
+                  - data
         "401":
           description: Unauthorized
           content:
@@ -725,9 +709,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -739,9 +722,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -753,10 +735,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/admin/shifts/{id}:
     get:
       summary: シフト詳細の取得
@@ -822,6 +802,8 @@ paths:
                       - endTime
                       - status
                       - employee
+                required:
+                  - data
         "401":
           description: Unauthorized
           content:
@@ -833,9 +815,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -847,9 +828,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -861,9 +841,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -875,10 +854,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
     patch:
       summary: シフトステータスの変更
       tags:
@@ -923,9 +900,8 @@ paths:
                     type: string
                     example: BadRequest
                   message:
-                    type: array
-                    items:
-                      example: 不正な入力値です。
+                    type: string
+                    example: 不正な入力値です。
         "401":
           description: Unauthorized
           content:
@@ -937,9 +913,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -951,9 +926,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -965,9 +939,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -979,10 +952,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/admin/absences/{id}:
     get:
       summary: 欠勤詳細の取得
@@ -1031,6 +1002,8 @@ paths:
                       - id
                       - status
                       - shift
+                required:
+                  - data
         "401":
           description: Unauthorized
           content:
@@ -1042,9 +1015,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -1056,9 +1028,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -1070,9 +1041,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -1084,10 +1054,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
     patch:
       summary: 欠勤ステータスの変更
       tags:
@@ -1132,9 +1100,8 @@ paths:
                     type: string
                     example: BadRequest
                   message:
-                    type: array
-                    items:
-                      example: 不正な入力値です。
+                    type: string
+                    example: 不正な入力値です。
         "401":
           description: Unauthorized
           content:
@@ -1146,9 +1113,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -1160,9 +1126,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -1174,9 +1139,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -1188,10 +1152,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/admin/notifications:
     get:
       summary: 全ての通知の取得
@@ -1274,6 +1236,9 @@ paths:
                       totalCount:
                         type: integer
                         example: 30
+                required:
+                  - data
+                  - pagenation
         "401":
           description: Unauthorized
           content:
@@ -1285,9 +1250,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -1299,9 +1263,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -1313,10 +1276,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/admin/notifications/{id}:
     patch:
       summary: 通知の既読/未読の変更
@@ -1348,9 +1309,8 @@ paths:
                     type: string
                     example: BadRequest
                   message:
-                    type: array
-                    items:
-                      example: 不正な入力値です。
+                    type: string
+                    example: 不正な入力値です。
         "401":
           description: Unauthorized
           content:
@@ -1362,9 +1322,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -1376,9 +1335,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -1390,9 +1348,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -1404,10 +1361,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/employee/shifts:
     get:
       summary: シフトカレンダー関連の取得
@@ -1456,6 +1411,8 @@ paths:
                         - startTime
                         - endTime
                         - status
+                required:
+                  - data
         "401":
           description: Unauthorized
           content:
@@ -1467,9 +1424,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -1481,9 +1437,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -1495,10 +1450,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
     post:
       summary: シフト申請の作成
       tags:
@@ -1537,9 +1490,8 @@ paths:
                     type: string
                     example: BadRequest
                   message:
-                    type: array
-                    items:
-                      example: 不正な入力値です。
+                    type: string
+                    example: 不正な入力値です。
         "401":
           description: Unauthorized
           content:
@@ -1551,9 +1503,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -1565,9 +1516,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -1579,10 +1529,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/employee/shifts/{id}:
     get:
       summary: シフト詳細の取得
@@ -1635,6 +1583,8 @@ paths:
                       - startTime
                       - endTime
                       - status
+                required:
+                  - data
         "401":
           description: Unauthorized
           content:
@@ -1646,9 +1596,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -1660,9 +1609,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -1674,9 +1622,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -1688,10 +1635,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
     patch:
       summary: シフト申請の編集
       tags:
@@ -1736,9 +1681,8 @@ paths:
                     type: string
                     example: BadRequest
                   message:
-                    type: array
-                    items:
-                      example: 不正な入力値です。
+                    type: string
+                    example: 不正な入力値です。
         "401":
           description: Unauthorized
           content:
@@ -1750,9 +1694,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -1764,9 +1707,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -1778,9 +1720,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -1792,10 +1733,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
     delete:
       summary: シフト申請の削除
       tags:
@@ -1826,9 +1765,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -1840,9 +1778,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -1854,9 +1791,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -1868,10 +1804,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/employee/absences:
     post:
       summary: 欠勤申請の作成
@@ -1908,9 +1842,8 @@ paths:
                     type: string
                     example: BadRequest
                   message:
-                    type: array
-                    items:
-                      example: 不正な入力値です。
+                    type: string
+                    example: 不正な入力値です。
         "401":
           description: Unauthorized
           content:
@@ -1922,9 +1855,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -1936,9 +1868,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -1950,10 +1881,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/employee/absences/new:
     get:
       summary: 欠勤申請可能なシフトの取得
@@ -1991,6 +1920,8 @@ paths:
                         - id
                         - startTime
                         - endTime
+                required:
+                  - data
         "401":
           description: Unauthorized
           content:
@@ -2002,9 +1933,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -2016,9 +1946,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -2030,9 +1959,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -2044,10 +1972,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/employee/absences/{id}:
     get:
       summary: 欠勤詳細の取得
@@ -2096,6 +2022,8 @@ paths:
                       - id
                       - status
                       - shift
+                required:
+                  - data
         "401":
           description: Unauthorized
           content:
@@ -2107,9 +2035,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -2121,9 +2048,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -2135,9 +2061,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -2149,10 +2074,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
     delete:
       summary: 欠勤申請の削除
       tags:
@@ -2183,9 +2106,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -2197,9 +2119,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -2211,9 +2132,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -2225,10 +2145,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/employee/notifications:
     get:
       summary: 全ての通知の取得
@@ -2299,6 +2217,9 @@ paths:
                       totalCount:
                         type: integer
                         example: 30
+                required:
+                  - data
+                  - pagenation
         "401":
           description: Unauthorized
           content:
@@ -2310,9 +2231,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -2324,9 +2244,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -2338,10 +2257,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/employee/notifications/{id}:
     patch:
       summary: 通知の既読/未読の変更
@@ -2373,9 +2290,8 @@ paths:
                     type: string
                     example: BadRequest
                   message:
-                    type: array
-                    items:
-                      example: 不正な入力値です。
+                    type: string
+                    example: 不正な入力値です。
         "401":
           description: Unauthorized
           content:
@@ -2387,9 +2303,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -2401,9 +2316,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -2415,9 +2329,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -2429,10 +2342,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/employee/mypage:
     get:
       summary: マイページ情報の取得
@@ -2483,6 +2394,8 @@ paths:
                       - id
                       - name
                       - email
+                required:
+                  - data
         "401":
           description: Unauthorized
           content:
@@ -2494,9 +2407,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -2508,9 +2420,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -2522,9 +2433,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -2536,10 +2446,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/employee/mypage/profile:
     get:
       summary: ログインしている従業員の取得
@@ -2571,6 +2479,8 @@ paths:
                     required:
                       - id
                       - name
+                required:
+                  - data
         "401":
           description: Unauthorized
           content:
@@ -2582,9 +2492,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -2596,9 +2505,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "404":
           description: NotFound
           content:
@@ -2610,9 +2518,8 @@ paths:
                     type: string
                     example: NotFound
                   message:
-                    type: array
-                    items:
-                      example: 対象データが存在しません。
+                    type: string
+                    example: 対象データが存在しません。
         "500":
           description: InternalServerError
           content:
@@ -2624,10 +2531,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/admin_auth:
     post:
       summary: 管理者作成
@@ -2673,9 +2578,8 @@ paths:
                     type: string
                     example: BadRequest
                   message:
-                    type: array
-                    items:
-                      example: 不正な入力値です。
+                    type: string
+                    example: 不正な入力値です。
         "401":
           description: Unauthorized
           content:
@@ -2687,9 +2591,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -2701,9 +2604,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -2715,10 +2617,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
     put:
       summary: 管理者編集
       tags:
@@ -2766,9 +2666,8 @@ paths:
                     type: string
                     example: BadRequest
                   message:
-                    type: array
-                    items:
-                      example: 不正な入力値です。
+                    type: string
+                    example: 不正な入力値です。
         "401":
           description: Unauthorized
           content:
@@ -2780,9 +2679,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -2794,9 +2692,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -2808,10 +2705,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
     delete:
       summary: 管理者削除
       tags:
@@ -2836,9 +2731,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -2850,9 +2744,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -2864,10 +2757,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/admin_auth/sign_in:
     post:
       summary: 管理者ログイン
@@ -2913,6 +2804,8 @@ paths:
                       - uid
                       - accessToken
                       - client
+                required:
+                  - data
         "400":
           description: BadRequest
           content:
@@ -2924,9 +2817,8 @@ paths:
                     type: string
                     example: BadRequest
                   message:
-                    type: array
-                    items:
-                      example: 不正な入力値です。
+                    type: string
+                    example: 不正な入力値です。
         "500":
           description: InternalServerError
           content:
@@ -2938,10 +2830,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/admin_auth/sign_out:
     delete:
       summary: 管理者ログアウト
@@ -2967,9 +2857,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -2981,9 +2870,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -2995,10 +2883,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/employee_auth:
     post:
       summary: 従業員作成
@@ -3059,9 +2945,8 @@ paths:
                     type: string
                     example: BadRequest
                   message:
-                    type: array
-                    items:
-                      example: 不正な入力値です。
+                    type: string
+                    example: 不正な入力値です。
         "401":
           description: Unauthorized
           content:
@@ -3073,9 +2958,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -3087,9 +2971,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -3101,10 +2984,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
     put:
       summary: 従業員編集
       tags:
@@ -3167,9 +3048,8 @@ paths:
                     type: string
                     example: BadRequest
                   message:
-                    type: array
-                    items:
-                      example: 不正な入力値です。
+                    type: string
+                    example: 不正な入力値です。
         "401":
           description: Unauthorized
           content:
@@ -3181,9 +3061,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -3195,9 +3074,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -3209,10 +3087,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/employee_auth/sign_in:
     post:
       summary: 従業員ログイン
@@ -3258,6 +3134,8 @@ paths:
                       - uid
                       - accessToken
                       - client
+                required:
+                  - data
         "400":
           description: BadRequest
           content:
@@ -3269,9 +3147,8 @@ paths:
                     type: string
                     example: BadRequest
                   message:
-                    type: array
-                    items:
-                      example: 不正な入力値です。
+                    type: string
+                    example: 不正な入力値です。
         "500":
           description: InternalServerError
           content:
@@ -3283,10 +3160,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
   /api/v1/employee_auth/sign_out:
     delete:
       summary: 従業員ログアウト
@@ -3312,9 +3187,8 @@ paths:
                     type: string
                     example: Unauthorized
                   message:
-                    type: array
-                    items:
-                      example: ログインしてください
+                    type: string
+                    example: ログインしてください
         "403":
           description: Forbidden
           content:
@@ -3326,9 +3200,8 @@ paths:
                     type: string
                     example: Forbidden
                   message:
-                    type: array
-                    items:
-                      example: 権限がありません
+                    type: string
+                    example: 権限がありません
         "500":
           description: InternalServerError
           content:
@@ -3340,10 +3213,8 @@ paths:
                     type: string
                     example: InternalServerError
                   messages:
-                    type: array
-                    items:
-                      type: string
-                      example: サーバーエラー
+                    type: string
+                    example: サーバーエラー
 components:
   securitySchemes:
     uid:
