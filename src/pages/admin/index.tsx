@@ -35,7 +35,7 @@ export default function AdminHome() {
             従業員一覧
           </Link>
           <Link
-            href="/admin/employees"
+            href="/admin/employees/new"
             className="mt-3 text-dark text-decoration-none"
           >
             従業員登録

@@ -1,13 +1,33 @@
 import Link from "next/link";
 import Stack from "react-bootstrap/Stack";
+import KintaiEmployee from "@/api/KintaiEmployee";
+import { useEffect, useState } from "react";
+import { GetUnappliedEmployees200ResponseDataInner as CurrentEmployee } from "@/api/typescript-axios";
 
 export default function EmployeeHeader() {
+  const [currentEmployee, setCurrentEmployee] = useState<CurrentEmployee>();
+
+  useEffect(() => {
+    (async () => {
+      const currentEmployeeRes = await KintaiEmployee.getCurrentEmployee();
+      setCurrentEmployee(currentEmployeeRes.data.data);
+    })();
+  }, []);
+
   return (
     <header className="bg-dark">
       <Stack direction="horizontal" gap={3}>
-        {/* TODO : 遷移先が問題ないか最終チェックが必要 */}
-        <Link href="/employee" className="p-2 text-light text-decoration-none">
+        <Link
+          href="/employee"
+          className="ms-2 p-2 text-light text-decoration-none"
+        >
           kintai
+        </Link>
+        <Link
+          href="/employee/mypage"
+          className="mx-auto p-2 text-light text-decoration-none"
+        >
+          {currentEmployee?.name}
         </Link>
         <Link
           href="/employee/shifts"
@@ -33,7 +53,10 @@ export default function EmployeeHeader() {
         >
           通知一覧
         </Link>
-        <Link href="/logout" className="p-2 text-light text-decoration-none">
+        <Link
+          href="/employee/logout"
+          className="me-2 p-2 text-light text-decoration-none"
+        >
           ログアウト
         </Link>
       </Stack>

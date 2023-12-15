@@ -1,9 +1,8 @@
-// import KintaiEmployee from "@/api/KintaiEmployee";
 import Header from "../components/Header";
 import MyHead from "@/components/MyHead";
 import KintaiAdmin from "@/api/KintaiAdmin";
-// import Router from "next/router";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   // TODO: そのうち削除する。レスポンスを適切に取得できているか確認のためにとりあえず記載。
@@ -28,8 +27,22 @@ export default function Home() {
       <main className="text-center">
         <h2 className="mt-5">ホーム</h2>
         <div>
-          <div className="mt-3">従業員ログイン</div>
-          <div className="mt-3">管理者ログイン</div>
+          <div className="mt-3">
+            <Link
+              href="/admin/sessions"
+              className="text-black text-decoration-none"
+            >
+              従業員ログイン
+            </Link>
+          </div>
+          <div className="mt-3">
+            <Link
+              href="/employee/sessions"
+              className="mt-3 text-black text-decoration-none"
+            >
+              管理者ログイン
+            </Link>
+          </div>
         </div>
       </main>
     </>
