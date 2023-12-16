@@ -1,7 +1,7 @@
 import AdminHeader from "@/components/AdminHeader";
 import MyHead from "@/components/MyHead";
 import Calendar from "@/components/Calendar";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import KintaiAdmin from "@/api/KintaiAdmin";
 import {
   GetShiftsForAdmin200ResponseDataInner as Shifts,
@@ -25,14 +25,18 @@ export default function AdminShifts() {
     })();
   }, []);
 
-  const shiftRows = shifts.map((shift) => ({
-    title: shift.absenceId ? "シフト" : "欠勤",
-    start: new Date(shift.startTime),
-    end: new Date(shift.endTime),
-    description: shift.absenceId ? "シフト詳細" : "欠勤詳細",
-    backgroundColor: shift.absenceId ? "blue" : "red",
-    borderColor: shift.absenceId ? "blue" : "red",
-  }));
+  const shiftRows = useMemo(
+    () =>
+      shifts.map((shift) => ({
+        title: shift.absenceId ? "シフト" : "欠勤",
+        start: new Date(shift.startTime),
+        end: new Date(shift.endTime),
+        description: shift.absenceId ? "シフト詳細" : "欠勤詳細",
+        backgroundColor: shift.absenceId ? "blue" : "red",
+        borderColor: shift.absenceId ? "blue" : "red",
+      })),
+    [shifts],
+  );
 
   return (
     <>
