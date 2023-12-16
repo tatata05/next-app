@@ -998,10 +998,24 @@ paths:
                       endTime:
                         type: string
                         example: 2030/01/01 23:00
+                      employee:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: example 従業員
+                        required:
+                          - id
+                          - name
                     required:
                       - id
                       - status
-                      - shift
+                      - startTime
+                      - endTime
+                      - employee
                 required:
                   - data
         "401":
@@ -1406,11 +1420,24 @@ paths:
                         absenceId:
                           type: integer
                           example: 1
+                        employee:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            name:
+                              type: string
+                              example: example 従業員
+                          required:
+                            - id
+                            - name
                       required:
                         - id
                         - startTime
                         - endTime
                         - status
+                        - employee
                 required:
                   - data
         "401":
@@ -1578,11 +1605,24 @@ paths:
                       absenceId:
                         type: integer
                         example: 1
+                      employee:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: example 従業員
+                        required:
+                          - id
+                          - name
                     required:
                       - id
                       - startTime
                       - endTime
                       - status
+                      - employee
                 required:
                   - data
         "401":
@@ -2018,10 +2058,24 @@ paths:
                       endTime:
                         type: string
                         example: 2030/01/01 23:00
+                      employee:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: example 従業員
+                        required:
+                          - id
+                          - name
                     required:
                       - id
                       - status
-                      - shift
+                      - startTime
+                      - endTime
+                      - employee
                 required:
                   - data
         "401":
