@@ -25,7 +25,7 @@ export default function AdminShifts() {
     })();
   }, []);
 
-  const shift_rows = shifts.map((shift) => ({
+  const shiftRows = shifts.map((shift) => ({
     title: shift.absenceId ? "シフト" : "欠勤",
     start: new Date(shift.startTime),
     end: new Date(shift.endTime),
@@ -60,7 +60,7 @@ export default function AdminShifts() {
               </div>
             )}
             <div className="mx-5">
-              <Calendar rows={shift_rows} />
+              <Calendar rows={shiftRows} />
             </div>
           </div>
         )}
