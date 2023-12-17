@@ -177,10 +177,10 @@ export interface DeleteEmployee400Response {
   errorCode?: string;
   /**
    *
-   * @type {Array<string>}
+   * @type {string}
    * @memberof DeleteEmployee400Response
    */
-  message?: Array<string>;
+  message?: string;
 }
 /**
  *
@@ -193,7 +193,7 @@ export interface GetAbsenceForAdmin200Response {
    * @type {GetAbsenceForAdmin200ResponseData}
    * @memberof GetAbsenceForAdmin200Response
    */
-  data?: GetAbsenceForAdmin200ResponseData;
+  data: GetAbsenceForAdmin200ResponseData;
 }
 /**
  *
@@ -247,7 +247,7 @@ export interface GetAdmin200Response {
    * @type {GetAdmins200ResponseDataInner}
    * @memberof GetAdmin200Response
    */
-  data?: GetAdmins200ResponseDataInner;
+  data: GetAdmins200ResponseDataInner;
 }
 /**
  *
@@ -263,10 +263,10 @@ export interface GetAdmin404Response {
   errorCode?: string;
   /**
    *
-   * @type {Array<string>}
+   * @type {string}
    * @memberof GetAdmin404Response
    */
-  message?: Array<string>;
+  message?: string;
 }
 /**
  *
@@ -279,13 +279,13 @@ export interface GetAdmins200Response {
    * @type {Array<GetAdmins200ResponseDataInner>}
    * @memberof GetAdmins200Response
    */
-  data?: Array<GetAdmins200ResponseDataInner>;
+  data: Array<GetAdmins200ResponseDataInner>;
   /**
    *
    * @type {GetAdmins200ResponsePagenation}
    * @memberof GetAdmins200Response
    */
-  pagenation?: GetAdmins200ResponsePagenation;
+  pagenation: GetAdmins200ResponsePagenation;
 }
 /**
  *
@@ -351,10 +351,10 @@ export interface GetAdmins401Response {
   errorCode?: string;
   /**
    *
-   * @type {Array<string>}
+   * @type {string}
    * @memberof GetAdmins401Response
    */
-  message?: Array<string>;
+  message?: string;
 }
 /**
  *
@@ -370,10 +370,10 @@ export interface GetAdmins403Response {
   errorCode?: string;
   /**
    *
-   * @type {Array<string>}
+   * @type {string}
    * @memberof GetAdmins403Response
    */
-  message?: Array<string>;
+  message?: string;
 }
 /**
  *
@@ -389,10 +389,10 @@ export interface GetAdmins500Response {
   errorCode?: string;
   /**
    *
-   * @type {Array<string>}
+   * @type {string}
    * @memberof GetAdmins500Response
    */
-  messages?: Array<string>;
+  messages?: string;
 }
 /**
  *
@@ -405,7 +405,7 @@ export interface GetCurrentEmployee200Response {
    * @type {GetUnappliedEmployees200ResponseDataInner}
    * @memberof GetCurrentEmployee200Response
    */
-  data?: GetUnappliedEmployees200ResponseDataInner;
+  data: GetUnappliedEmployees200ResponseDataInner;
 }
 /**
  *
@@ -418,7 +418,7 @@ export interface GetEmployee200Response {
    * @type {GetEmployee200ResponseData}
    * @memberof GetEmployee200Response
    */
-  data?: GetEmployee200ResponseData;
+  data: GetEmployee200ResponseData;
 }
 /**
  *
@@ -486,13 +486,13 @@ export interface GetEmployees200Response {
    * @type {Array<GetEmployees200ResponseDataInner>}
    * @memberof GetEmployees200Response
    */
-  data?: Array<GetEmployees200ResponseDataInner>;
+  data: Array<GetEmployees200ResponseDataInner>;
   /**
    *
    * @type {GetAdmins200ResponsePagenation}
    * @memberof GetEmployees200Response
    */
-  pagenation?: GetAdmins200ResponsePagenation;
+  pagenation: GetAdmins200ResponsePagenation;
 }
 /**
  *
@@ -530,7 +530,7 @@ export interface GetNewAbsence200Response {
    * @type {Array<GetNewAbsence200ResponseDataInner>}
    * @memberof GetNewAbsence200Response
    */
-  data?: Array<GetNewAbsence200ResponseDataInner>;
+  data: Array<GetNewAbsence200ResponseDataInner>;
 }
 /**
  *
@@ -568,13 +568,13 @@ export interface GetNotificationsForAdmin200Response {
    * @type {GetNotificationsForAdmin200ResponseData}
    * @memberof GetNotificationsForAdmin200Response
    */
-  data?: GetNotificationsForAdmin200ResponseData;
+  data: GetNotificationsForAdmin200ResponseData;
   /**
    *
    * @type {GetAdmins200ResponsePagenation}
    * @memberof GetNotificationsForAdmin200Response
    */
-  pagenation?: GetAdmins200ResponsePagenation;
+  pagenation: GetAdmins200ResponsePagenation;
 }
 /**
  *
@@ -655,13 +655,13 @@ export interface GetNotificationsForEmployee200Response {
    * @type {GetNotificationsForEmployee200ResponseData}
    * @memberof GetNotificationsForEmployee200Response
    */
-  data?: GetNotificationsForEmployee200ResponseData;
+  data: GetNotificationsForEmployee200ResponseData;
   /**
    *
    * @type {GetAdmins200ResponsePagenation}
    * @memberof GetNotificationsForEmployee200Response
    */
-  pagenation?: GetAdmins200ResponsePagenation;
+  pagenation: GetAdmins200ResponsePagenation;
 }
 /**
  *
@@ -736,7 +736,7 @@ export interface GetShiftForAdmin200Response {
    * @type {GetShiftsForAdmin200ResponseDataInner}
    * @memberof GetShiftForAdmin200Response
    */
-  data?: GetShiftsForAdmin200ResponseDataInner;
+  data: GetShiftsForAdmin200ResponseDataInner;
 }
 /**
  *
@@ -749,7 +749,7 @@ export interface GetShiftForEmployee200Response {
    * @type {GetShiftsForEmployee200ResponseDataInner}
    * @memberof GetShiftForEmployee200Response
    */
-  data?: GetShiftsForEmployee200ResponseDataInner;
+  data: GetShiftsForEmployee200ResponseDataInner;
 }
 /**
  *
@@ -762,7 +762,7 @@ export interface GetShiftsForAdmin200Response {
    * @type {Array<GetShiftsForAdmin200ResponseDataInner>}
    * @memberof GetShiftsForAdmin200Response
    */
-  data?: Array<GetShiftsForAdmin200ResponseDataInner>;
+  data: Array<GetShiftsForAdmin200ResponseDataInner>;
 }
 /**
  *
@@ -828,7 +828,7 @@ export interface GetShiftsForEmployee200Response {
    * @type {Array<GetShiftsForEmployee200ResponseDataInner>}
    * @memberof GetShiftsForEmployee200Response
    */
-  data?: Array<GetShiftsForEmployee200ResponseDataInner>;
+  data: Array<GetShiftsForEmployee200ResponseDataInner>;
 }
 /**
  *
@@ -888,7 +888,7 @@ export interface GetUnappliedEmployees200Response {
    * @type {Array<GetUnappliedEmployees200ResponseDataInner>}
    * @memberof GetUnappliedEmployees200Response
    */
-  data?: Array<GetUnappliedEmployees200ResponseDataInner>;
+  data: Array<GetUnappliedEmployees200ResponseDataInner>;
 }
 /**
  *
@@ -920,7 +920,7 @@ export interface SignInAdmin201Response {
    * @type {SignInAdmin201ResponseData}
    * @memberof SignInAdmin201Response
    */
-  data?: SignInAdmin201ResponseData;
+  data: SignInAdmin201ResponseData;
 }
 /**
  *
