@@ -1,15 +1,37 @@
 import ShowDetail from "./ShowDetail";
+import { GetAbsenceForAdmin200ResponseData as Absence } from "@/api/typescript-axios";
 
+// TODO: shift 側を修正した時に、型も調整
 type ShiftAbsenceProps = {
-  rows: RowType[];
+  fetchData: Absence;
 };
 
-type RowType = {
-  detailLabel: string;
-  detail: string;
-};
+export default function ShiftAbsenceShow({ fetchData }: ShiftAbsenceProps) {
+  const statusJa = {
+    unapproved: "未承認",
+    approved: "承認",
+    rejected: "却下",
+  };
 
-export default function ShiftAbsenceShow({ rows }: ShiftAbsenceProps) {
+  const rows = [
+    {
+      detailLabel: "従業員名",
+      detail: fetchData.employee.name,
+    },
+    {
+      detailLabel: "開始時間",
+      detail: fetchData.startTime.toLocaleString(),
+    },
+    {
+      detailLabel: "終了時間",
+      detail: fetchData.endTime.toLocaleString(),
+    },
+    {
+      detailLabel: "承認状況",
+      detail: statusJa[`${fetchData.status}`],
+    },
+  ];
+
   return (
     <div className="row pb-5">
       {rows.map((row, index) => (

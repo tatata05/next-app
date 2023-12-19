@@ -31,33 +31,6 @@ export default function AdminAbsencesShow() {
     fetchAbsence();
   }, [fetchAbsence]);
 
-  const statusJa = {
-    unapproved: "未承認",
-    approved: "承認",
-    rejected: "却下",
-  };
-
-  const rows = absence
-    ? [
-        {
-          detailLabel: "従業員名",
-          detail: absence.employee.name,
-        },
-        {
-          detailLabel: "開始時間",
-          detail: absence.startTime.toLocaleString(),
-        },
-        {
-          detailLabel: "終了時間",
-          detail: absence.endTime.toLocaleString(),
-        },
-        {
-          detailLabel: "承認状況",
-          detail: statusJa[`${absence.status}`],
-        },
-      ]
-    : [];
-
   type StatusProps = "approved" | "rejected";
 
   const changeStatus = async (afterStatus: StatusProps) => {
@@ -77,7 +50,7 @@ export default function AdminAbsencesShow() {
           <>Loading...</>
         ) : absence ? (
           <>
-            <ShiftAbsenceShow rows={rows} />
+            <ShiftAbsenceShow fetchData={absence} />
             <div className="d-flex justify-content-center col-8 mx-auto text-center">
               <StatusButton
                 changeStatus={() => changeStatus("approved")}
