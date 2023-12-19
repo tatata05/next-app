@@ -13,3 +13,5 @@ jobs:
         run: npm run format
       - name: Lint
         run: npm run lint
+      - name: type-check
+        run: npm run type-check
