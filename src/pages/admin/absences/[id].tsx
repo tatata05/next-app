@@ -4,31 +4,32 @@ import MyHead from "@/components/MyHead";
 import ShiftAbsenceShow from "@/components/ShiftAbsenceShow";
 import StatusButton from "@/components/StatusButton";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { GetAbsenceForAdmin200ResponseData as Absence } from "@/api/typescript-axios";
 
 export default function AdminAbsencesShow() {
   const router = useRouter();
   const [isLoading, setLoading] = useState<boolean>(true);
   const [absence, setAbsence] = useState<Absence>();
-  const [updateAbsenceStatus, setUpdateAbsenceStatus] = useState<boolean>();
   // データフェッチの際、idはNumber型で指定している
   const id = Number(router.query.id);
 
-  useEffect(() => {
-    (async () => {
-      // router.isReady はboolean。trueでないと、idがundefinedになってしまうため、trueの時にデータフェッチを行う。
-      if (router.isReady) {
-        try {
-          const absenceRes = await KintaiAdmin.getAbsenceForAdmin(id);
-          setAbsence(absenceRes.data.data);
-        } catch (error) {
-          // TODO: エラー処理と、その共通化
-        }
-        setLoading(false);
+  const fetchAbsence = useCallback(async () => {
+    // router.isReady はboolean。trueでないと、idがundefinedになってしまうため、trueの時にデータフェッチを行う。
+    if (router.isReady) {
+      try {
+        const absenceRes = await KintaiAdmin.getAbsenceForAdmin(id);
+        setAbsence(absenceRes.data.data);
+      } catch (error) {
+        // TODO: エラー処理と、その共通化
       }
-    })();
-  }, [router.isReady, updateAbsenceStatus]);
+      setLoading(false);
+    }
+  }, [router]);
+
+  useEffect(() => {
+    fetchAbsence();
+  }, [fetchAbsence]);
 
   const statusJa = {
     unapproved: "未承認",
@@ -63,7 +64,7 @@ export default function AdminAbsencesShow() {
     await KintaiAdmin.updateAbsenceStatus(id, {
       status: afterStatus,
     });
-    setUpdateAbsenceStatus(!updateAbsenceStatus);
+    fetchAbsence();
   };
 
   return (
