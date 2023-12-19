@@ -27,6 +27,11 @@ const rows = [
 ];
 
 export default function AdminShiftsShow() {
+  // typeエラーが出ないために仮の関数
+  const changeExample = async (example: any) => {
+    console.log(example);
+  };
+
   // 仮の時間を設定
   return (
     <>
@@ -37,8 +42,14 @@ export default function AdminShiftsShow() {
         {/* TODO : <p>該当するシフトは存在しません</p> */}
         <ShiftAbsenceShow rows={rows} />
         <div className="d-flex justify-content-center col-8 mx-auto text-center">
-          <StatusButton link="/" statusLabel="承認" />
-          <StatusButton link="/" statusLabel="却下" />
+          <StatusButton
+            changeStatus={() => changeExample("example")}
+            statusLabel="承認"
+          />
+          <StatusButton
+            changeStatus={() => changeExample("example")}
+            statusLabel="却下"
+          />
         </div>
       </main>
     </>

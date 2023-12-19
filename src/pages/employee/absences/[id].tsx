@@ -27,6 +27,11 @@ const rows = [
 ];
 
 export default function AdminAbsencesShow() {
+  // typeエラーが出ないために仮の関数
+  const changeExample = async (example: any) => {
+    console.log(example);
+  };
+
   return (
     <>
       <MyHead title="欠勤詳細" />
@@ -39,7 +44,10 @@ export default function AdminAbsencesShow() {
         {/* TODO : 以下の状態であればボタンを表示
         if current_employee.id == @absence.shift.employee_id && @absence.status == "unapproved" */}
         <div className="d-flex justify-content-center col-8 mx-auto text-center">
-          <StatusButton link="/" statusLabel="取消" />
+          <StatusButton
+            changeStatus={() => changeExample("example")}
+            statusLabel="取消"
+          />
         </div>
       </main>
     </>

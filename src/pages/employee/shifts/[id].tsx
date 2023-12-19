@@ -27,6 +27,11 @@ const rows = [
 ];
 
 export default function EmployeeShiftShow() {
+  // typeエラーが出ないために仮の関数
+  const changeExample = async (example: any) => {
+    console.log(example);
+  };
+
   return (
     <>
       <MyHead title="シフト詳細" />
@@ -36,8 +41,14 @@ export default function EmployeeShiftShow() {
         {/* TODO : <p>該当するシフトは存在しません</p> */}
         <ShiftShow rows={rows} />
         <div className="d-flex justify-content-center col-8 mx-auto text-center">
-          <StatusButton link="/" statusLabel="編集" />
-          <StatusButton link="/" statusLabel="取消" />
+          <StatusButton
+            changeStatus={() => changeExample("example")}
+            statusLabel="編集"
+          />
+          <StatusButton
+            changeStatus={() => changeExample("example")}
+            statusLabel="取消"
+          />
         </div>
       </main>
     </>
