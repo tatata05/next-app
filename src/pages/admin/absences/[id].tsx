@@ -11,13 +11,13 @@ export default function AdminAbsencesShow() {
   const router = useRouter();
   const [isLoading, setLoading] = useState<boolean>(true);
   const [absence, setAbsence] = useState<Absence>();
-  // データフェッチの際、idはNumber型で指定している
-  const id = Number(router.query.id);
 
   const fetchAbsence = useCallback(async () => {
     // router.isReady はboolean。trueでないと、idがundefinedになってしまうため、trueの時にデータフェッチを行う。
     if (router.isReady) {
       try {
+        // データフェッチの際、idはNumber型で指定している
+        const id = Number(router.query.id);
         const absenceRes = await KintaiAdmin.getAbsenceForAdmin(id);
         setAbsence(absenceRes.data.data);
       } catch (error) {
@@ -34,6 +34,7 @@ export default function AdminAbsencesShow() {
   type StatusProps = "approved" | "rejected";
 
   const changeStatus = async (afterStatus: StatusProps) => {
+    const id = Number(router.query.id);
     await KintaiAdmin.updateAbsenceStatus(id, {
       status: afterStatus,
     });
