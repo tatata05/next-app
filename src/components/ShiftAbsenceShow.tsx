@@ -3,32 +3,32 @@ import { GetAbsenceForAdmin200ResponseData as Absence } from "@/api/typescript-a
 
 // TODO: shift 側を修正した時に、型も調整
 type ShiftAbsenceProps = {
-  fetchData?: Absence;
+  absence?: Absence;
 };
 
-export default function ShiftAbsenceShow({ fetchData }: ShiftAbsenceProps) {
+export default function ShiftAbsenceShow({ absence }: ShiftAbsenceProps) {
   const statusJa = {
     unapproved: "未承認",
     approved: "承認",
     rejected: "却下",
   };
 
-  const rows = fetchData && [
+  const rows = absence && [
     {
       detailLabel: "従業員名",
-      detail: fetchData.employee.name,
+      detail: absence.employee.name,
     },
     {
       detailLabel: "開始時間",
-      detail: fetchData.startTime.toLocaleString(),
+      detail: absence.startTime.toLocaleString(),
     },
     {
       detailLabel: "終了時間",
-      detail: fetchData.endTime.toLocaleString(),
+      detail: absence.endTime.toLocaleString(),
     },
     {
       detailLabel: "承認状況",
-      detail: statusJa[`${fetchData.status}`],
+      detail: statusJa[`${absence.status}`],
     },
   ];
 

@@ -51,7 +51,7 @@ export default function AdminAbsencesShow() {
           <>Loading...</>
         ) : absence ? (
           <>
-            <ShiftAbsenceShow fetchData={absence} />
+            <ShiftAbsenceShow absence={absence} />
             <div className="d-flex justify-content-center col-8 mx-auto text-center">
               <StatusButton
                 changeStatus={() => changeStatus("approved")}
