@@ -3,7 +3,7 @@ import { GetAbsenceForAdmin200ResponseData as Absence } from "@/api/typescript-a
 
 // TODO: shift 側を修正した時に、型も調整
 type ShiftAbsenceProps = {
-  fetchData: Absence;
+  fetchData?: Absence;
 };
 
 export default function ShiftAbsenceShow({ fetchData }: ShiftAbsenceProps) {
@@ -13,7 +13,7 @@ export default function ShiftAbsenceShow({ fetchData }: ShiftAbsenceProps) {
     rejected: "却下",
   };
 
-  const rows = [
+  const rows = fetchData && [
     {
       detailLabel: "従業員名",
       detail: fetchData.employee.name,
@@ -34,7 +34,7 @@ export default function ShiftAbsenceShow({ fetchData }: ShiftAbsenceProps) {
 
   return (
     <div className="row pb-5">
-      {rows.map((row, index) => (
+      {rows?.map((row, index) => (
         <ShowDetail
           key={index}
           detailLabel={row.detailLabel}

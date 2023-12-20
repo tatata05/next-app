@@ -1,5 +1,5 @@
 type StatusType = {
-  changeStatus: () => Promise<void>;
+  changeStatus?: () => void;
   statusLabel: string;
 };
 
