@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import MyHead from "@/components/MyHead";
 import Link from "next/link";
-import Form from "@/components/From";
+import Form from "@/components/Form";
 
 const rows = [
   {

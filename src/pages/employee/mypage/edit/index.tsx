@@ -1,6 +1,6 @@
 import EmployeeHeader from "@/components/EmployeeHeader";
 import MyHead from "@/components/MyHead";
-import Form from "@/components/From";
+import Form from "@/components/Form";
 
 const rows = [
   {

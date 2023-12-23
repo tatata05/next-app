@@ -2,6 +2,7 @@ import KintaiAuth from "@/api/KintaiAuth";
 import RadioButton from "./RadioButton";
 import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
+import Router from "next/router";
 
 type FormArray = {
   action: string;
@@ -30,6 +31,7 @@ export default function From({ action, submitLabel, rows }: FormArray) {
       Cookies.set("access-token", res.headers["access-token"]);
       Cookies.set("client", res.headers["client"]);
       Cookies.set("uid", res.headers["uid"]);
+      Router.push("/");
     } catch (error) {
       console.log(error);
     }
