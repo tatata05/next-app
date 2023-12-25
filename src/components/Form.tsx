@@ -19,6 +19,8 @@ type FormProps = {
 type DataProps = {
   email?: string;
   password?: string;
+  name?: string;
+  passwordConfirmation?: string;
 };
 
 export default function Form({
