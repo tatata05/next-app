@@ -2,7 +2,9 @@ import { EmployeeApi } from "@/api/typescript-axios";
 import { Configuration } from "@/api/typescript-axios/configuration";
 import axios from "axios";
 
-const axiosInstance = axios.create();
+const axiosInstance = axios.create({
+  withCredentials: true,
+});
 
 const KintaiEmployee = new EmployeeApi(
   {
