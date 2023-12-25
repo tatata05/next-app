@@ -1,13 +1,12 @@
-import KintaiAuth from "@/api/KintaiAuth";
+import { Dispatch, SetStateAction } from "react";
 import RadioButton from "./RadioButton";
 import { useForm } from "react-hook-form";
-import Cookies from "js-cookie";
-import Router from "next/router";
 
 type FormArray = {
   action: string;
   submitLabel: string;
   rows: FormProps[];
+  setData?: Dispatch<SetStateAction<object>>;
 };
 
 type FormProps = {
@@ -22,19 +21,17 @@ type DataProps = {
   password?: string;
 };
 
-export default function From({ action, submitLabel, rows }: FormArray) {
+export default function Form({
+  action,
+  submitLabel,
+  rows,
+  setData,
+}: FormArray) {
   const { handleSubmit, register } = useForm();
 
-  const onSubmit = async (data: DataProps) => {
-    try {
-      const res = await KintaiAuth.signInAdmin(data);
-      Cookies.set("access-token", res.headers["access-token"]);
-      Cookies.set("client", res.headers["client"]);
-      Cookies.set("uid", res.headers["uid"]);
-      Router.push("/");
-    } catch (error) {
-      console.log(error);
-    }
+  const onSubmit = (data: DataProps) => {
+    // typeエラーが出てしまうので、setData && としている。全てのページを修正できたら不必要になるはず
+    setData && setData(data);
   };
 
   return (
