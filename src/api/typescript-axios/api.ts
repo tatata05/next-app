@@ -218,13 +218,19 @@ export interface GetAbsenceForAdmin200ResponseData {
    * @type {string}
    * @memberof GetAbsenceForAdmin200ResponseData
    */
-  startTime?: string;
+  startTime: string;
   /**
    *
    * @type {string}
    * @memberof GetAbsenceForAdmin200ResponseData
    */
-  endTime?: string;
+  endTime: string;
+  /**
+   *
+   * @type {GetUnappliedEmployees200ResponseDataInner}
+   * @memberof GetAbsenceForAdmin200ResponseData
+   */
+  employee: GetUnappliedEmployees200ResponseDataInner;
 }
 
 export const GetAbsenceForAdmin200ResponseDataStatusEnum = {
@@ -741,19 +747,6 @@ export interface GetShiftForAdmin200Response {
 /**
  *
  * @export
- * @interface GetShiftForEmployee200Response
- */
-export interface GetShiftForEmployee200Response {
-  /**
-   *
-   * @type {GetShiftsForEmployee200ResponseDataInner}
-   * @memberof GetShiftForEmployee200Response
-   */
-  data: GetShiftsForEmployee200ResponseDataInner;
-}
-/**
- *
- * @export
  * @interface GetShiftsForAdmin200Response
  */
 export interface GetShiftsForAdmin200Response {
@@ -816,66 +809,6 @@ export const GetShiftsForAdmin200ResponseDataInnerStatusEnum = {
 
 export type GetShiftsForAdmin200ResponseDataInnerStatusEnum =
   (typeof GetShiftsForAdmin200ResponseDataInnerStatusEnum)[keyof typeof GetShiftsForAdmin200ResponseDataInnerStatusEnum];
-
-/**
- *
- * @export
- * @interface GetShiftsForEmployee200Response
- */
-export interface GetShiftsForEmployee200Response {
-  /**
-   *
-   * @type {Array<GetShiftsForEmployee200ResponseDataInner>}
-   * @memberof GetShiftsForEmployee200Response
-   */
-  data: Array<GetShiftsForEmployee200ResponseDataInner>;
-}
-/**
- *
- * @export
- * @interface GetShiftsForEmployee200ResponseDataInner
- */
-export interface GetShiftsForEmployee200ResponseDataInner {
-  /**
-   *
-   * @type {number}
-   * @memberof GetShiftsForEmployee200ResponseDataInner
-   */
-  id: number;
-  /**
-   *
-   * @type {string}
-   * @memberof GetShiftsForEmployee200ResponseDataInner
-   */
-  startTime: string;
-  /**
-   *
-   * @type {string}
-   * @memberof GetShiftsForEmployee200ResponseDataInner
-   */
-  endTime: string;
-  /**
-   *
-   * @type {string}
-   * @memberof GetShiftsForEmployee200ResponseDataInner
-   */
-  status: GetShiftsForEmployee200ResponseDataInnerStatusEnum;
-  /**
-   *
-   * @type {number}
-   * @memberof GetShiftsForEmployee200ResponseDataInner
-   */
-  absenceId?: number;
-}
-
-export const GetShiftsForEmployee200ResponseDataInnerStatusEnum = {
-  Unapproved: "unapproved",
-  Approved: "approved",
-  AbsenceApplication: "absenceApplication",
-} as const;
-
-export type GetShiftsForEmployee200ResponseDataInnerStatusEnum =
-  (typeof GetShiftsForEmployee200ResponseDataInnerStatusEnum)[keyof typeof GetShiftsForEmployee200ResponseDataInnerStatusEnum];
 
 /**
  *
@@ -4899,7 +4832,7 @@ export const EmployeeApiFp = function (configuration?: Configuration) {
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<GetShiftForEmployee200Response>
+      ) => AxiosPromise<GetShiftForAdmin200Response>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.getShiftForEmployee(id, options);
@@ -4926,7 +4859,7 @@ export const EmployeeApiFp = function (configuration?: Configuration) {
       (
         axios?: AxiosInstance,
         basePath?: string,
-      ) => AxiosPromise<GetShiftsForEmployee200Response>
+      ) => AxiosPromise<GetShiftsForAdmin200Response>
     > {
       const localVarAxiosArgs =
         await localVarAxiosParamCreator.getShiftsForEmployee(options);
@@ -5145,7 +5078,7 @@ export const EmployeeApiFactory = function (
     getShiftForEmployee(
       id: number,
       options?: any,
-    ): AxiosPromise<GetShiftForEmployee200Response> {
+    ): AxiosPromise<GetShiftForAdmin200Response> {
       return localVarFp
         .getShiftForEmployee(id, options)
         .then((request) => request(axios, basePath));
@@ -5158,7 +5091,7 @@ export const EmployeeApiFactory = function (
      */
     getShiftsForEmployee(
       options?: any,
-    ): AxiosPromise<GetShiftsForEmployee200Response> {
+    ): AxiosPromise<GetShiftsForAdmin200Response> {
       return localVarFp
         .getShiftsForEmployee(options)
         .then((request) => request(axios, basePath));

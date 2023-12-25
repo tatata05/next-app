@@ -1,45 +1,71 @@
+import KintaiAdmin from "@/api/KintaiAdmin";
 import AdminHeader from "@/components/AdminHeader";
 import MyHead from "@/components/MyHead";
 import ShiftAbsenceShow from "@/components/ShiftAbsenceShow";
 import StatusButton from "@/components/StatusButton";
-
-// 仮の時間を設定
-const startTime = new Date("5 17, 1998 18:00:00");
-const endTime = new Date("5 17, 1998 23:00:00");
-
-const rows = [
-  {
-    detailLabel: "従業員名",
-    detail: "I am 従業員",
-  },
-  {
-    detailLabel: "開始時間",
-    detail: startTime.toLocaleString(),
-  },
-  {
-    detailLabel: "終了時間",
-    detail: endTime.toLocaleString(),
-  },
-  {
-    detailLabel: "承認状況",
-    detail: "未承認",
-  },
-];
+import { useRouter } from "next/router";
+import { useCallback, useEffect, useState } from "react";
+import { GetAbsenceForAdmin200ResponseData as Absence } from "@/api/typescript-axios";
 
 export default function AdminAbsencesShow() {
+  const router = useRouter();
+  const [isLoading, setLoading] = useState<boolean>(true);
+  const [absence, setAbsence] = useState<Absence>();
+
+  const fetchAbsence = useCallback(async () => {
+    // router.isReady はboolean。trueでないと、idがundefinedになってしまうため、trueの時にデータフェッチを行う。
+    if (router.isReady) {
+      try {
+        // データフェッチの際、idはNumber型で指定している
+        const id = Number(router.query.id);
+        const absenceRes = await KintaiAdmin.getAbsenceForAdmin(id);
+        setAbsence(absenceRes.data.data);
+      } catch (error) {
+        // TODO: エラー処理と、その共通化
+      }
+      setLoading(false);
+    }
+  }, [router]);
+
+  useEffect(() => {
+    fetchAbsence();
+  }, [fetchAbsence]);
+
+  type StatusProps = "approved" | "rejected";
+
+  const changeStatus = async (afterStatus: StatusProps) => {
+    const id = Number(router.query.id);
+    await KintaiAdmin.updateAbsenceStatus(id, {
+      status: afterStatus,
+    });
+    fetchAbsence();
+  };
+
   return (
     <>
       <MyHead title="欠勤詳細" />
       <AdminHeader />
       <main className="text-center">
         <h2 className="mt-5 mb-5">欠勤詳細</h2>
-        {/* TODO : absenceが存在しなければ
-        <p>該当する欠勤は存在しません</p> */}
-        <ShiftAbsenceShow rows={rows} />
-        <div className="d-flex justify-content-center col-8 mx-auto text-center">
-          <StatusButton link="/" statusLabel="承認" />
-          <StatusButton link="/" statusLabel="却下" />
-        </div>
+        {isLoading ? (
+          <>Loading...</>
+        ) : absence ? (
+          <>
+            <ShiftAbsenceShow absence={absence} />
+            <div className="d-flex justify-content-center col-8 mx-auto text-center">
+              <StatusButton
+                changeStatus={() => changeStatus("approved")}
+                statusLabel="承認"
+              />
+              <StatusButton
+                changeStatus={() => changeStatus("rejected")}
+                statusLabel="却下"
+              />
+            </div>
+          </>
+        ) : (
+          <p>該当する欠勤は存在しません</p>
+        )}
       </main>
     </>
   );

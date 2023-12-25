@@ -7,6 +7,7 @@ import StatusButton from "@/components/StatusButton";
 const startTime = new Date("5 17, 1998 18:00:00");
 const endTime = new Date("5 17, 1998 23:00:00");
 
+// このページ編集時に、どういった表示をしたかったかわかりやすくするために残しておく。編集後は削除する
 const rows = [
   {
     detailLabel: "従業員名",
@@ -25,6 +26,7 @@ const rows = [
     detail: "未承認",
   },
 ];
+console.log(rows);
 
 export default function AdminAbsencesShow() {
   return (
@@ -35,11 +37,11 @@ export default function AdminAbsencesShow() {
         <h2 className="mt-5 mb-5">欠勤詳細</h2>
         {/* TODO : absenceが存在しなければ
         <p>該当する欠勤は存在しません</p> */}
-        <ShiftAbsenceShow rows={rows} />
+        <ShiftAbsenceShow />
         {/* TODO : 以下の状態であればボタンを表示
         if current_employee.id == @absence.shift.employee_id && @absence.status == "unapproved" */}
         <div className="d-flex justify-content-center col-8 mx-auto text-center">
-          <StatusButton link="/" statusLabel="取消" />
+          <StatusButton statusLabel="取消" />
         </div>
       </main>
     </>
