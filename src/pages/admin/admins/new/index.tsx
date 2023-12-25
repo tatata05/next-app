@@ -26,7 +26,7 @@ const rows = [
     nameLabel: "パスワード(確認)",
     type: "password",
     warningLabel: "6文字以上",
-    registerLabel: "password_confirmation",
+    registerLabel: "passwordConfirmation",
   },
 ];
 
@@ -34,7 +34,7 @@ type DataProps = {
   name?: string;
   email?: string;
   password?: string;
-  password_confirmation?: string;
+  passwordConfirmation?: string;
 };
 
 export default function AdminAdminNew() {
@@ -46,7 +46,7 @@ export default function AdminAdminNew() {
         data.name &&
         data.email &&
         data.password &&
-        data.password_confirmation
+        data.passwordConfirmation
       ) {
         await KintaiAuth.createAdmin(data);
         Router.push("/");
