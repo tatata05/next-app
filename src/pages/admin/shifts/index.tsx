@@ -8,8 +8,11 @@ import {
   GetUnappliedEmployees200ResponseDataInner as UnappliedEmployees,
 } from "@/api/typescript-axios";
 import Link from "next/link";
+import { errorHandler } from "@/utils/errorHandler";
+import { useRouter } from "next/router";
 
 export default function AdminShifts() {
+  const router = useRouter();
   const [isLoading, setLoading] = useState<boolean>(true);
   const [shifts, setShifts] = useState<Shifts[]>([]);
   const [unappliedEmployees, setUnappliedEmployees] =
@@ -17,11 +20,15 @@ export default function AdminShifts() {
 
   useEffect(() => {
     (async () => {
-      const shiftsRes = await KintaiAdmin.getShiftsForAdmin();
-      setShifts(shiftsRes.data.data);
-      const unappliedEmployeesRes = await KintaiAdmin.getUnappliedEmployees();
-      setUnappliedEmployees(unappliedEmployeesRes.data.data);
-      setLoading(false);
+      try {
+        const shiftsRes = await KintaiAdmin.getShiftsForAdmin();
+        setShifts(shiftsRes.data.data);
+        const unappliedEmployeesRes = await KintaiAdmin.getUnappliedEmployees();
+        setUnappliedEmployees(unappliedEmployeesRes.data.data);
+        setLoading(false);
+      } catch (error) {
+        errorHandler(error, router);
+      }
     })();
   }, []);
 

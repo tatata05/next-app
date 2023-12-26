@@ -6,6 +6,8 @@ import Cookies from "js-cookie";
 import Router from "next/router";
 import KintaiAuth from "@/api/KintaiAuth";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { errorHandler } from "@/utils/errorHandler";
 
 const rows = [
   {
@@ -26,16 +28,21 @@ type DataProps = {
 };
 
 export default function AdminSessions() {
+  const router = useRouter();
   const [data, setData] = useState<DataProps>({});
 
   useEffect(() => {
     (async () => {
       if (data.email && data.password) {
-        const res = await KintaiAuth.signInAdmin(data);
-        Cookies.set("access-token", res.headers["access-token"]);
-        Cookies.set("client", res.headers["client"]);
-        Cookies.set("uid", res.headers["uid"]);
-        Router.push("/");
+        try {
+          const res = await KintaiAuth.signInAdmin(data);
+          Cookies.set("access-token", res.headers["access-token"]);
+          Cookies.set("client", res.headers["client"]);
+          Cookies.set("uid", res.headers["uid"]);
+          Router.push("/");
+        } catch (error) {
+          errorHandler(error, router);
+        }
       }
     })();
   }, [data]);

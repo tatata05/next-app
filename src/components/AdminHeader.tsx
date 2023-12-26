@@ -3,14 +3,21 @@ import Stack from "react-bootstrap/Stack";
 import KintaiAdmin from "@/api/KintaiAdmin";
 import { useEffect, useState } from "react";
 import { GetAdmins200ResponseDataInner as CurrentAdmin } from "@/api/typescript-axios";
+import { useRouter } from "next/router";
+import { errorHandler } from "@/utils/errorHandler";
 
 export default function AdminHeader() {
+  const router = useRouter();
   const [currentAdmin, setCurrentAdmin] = useState<CurrentAdmin>();
 
   useEffect(() => {
     (async () => {
-      const currentAdminRes = await KintaiAdmin.getCurrentAdmin();
-      setCurrentAdmin(currentAdminRes.data.data);
+      try {
+        const currentAdminRes = await KintaiAdmin.getCurrentAdmin();
+        setCurrentAdmin(currentAdminRes.data.data);
+      } catch (error) {
+        errorHandler(error, router);
+      }
     })();
   }, []);
 

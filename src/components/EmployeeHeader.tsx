@@ -3,14 +3,21 @@ import Stack from "react-bootstrap/Stack";
 import KintaiEmployee from "@/api/KintaiEmployee";
 import { useEffect, useState } from "react";
 import { GetUnappliedEmployees200ResponseDataInner as CurrentEmployee } from "@/api/typescript-axios";
+import { useRouter } from "next/router";
+import { errorHandler } from "@/utils/errorHandler";
 
 export default function EmployeeHeader() {
+  const router = useRouter();
   const [currentEmployee, setCurrentEmployee] = useState<CurrentEmployee>();
 
   useEffect(() => {
     (async () => {
-      const currentEmployeeRes = await KintaiEmployee.getCurrentEmployee();
-      setCurrentEmployee(currentEmployeeRes.data.data);
+      try {
+        const currentEmployeeRes = await KintaiEmployee.getCurrentEmployee();
+        setCurrentEmployee(currentEmployeeRes.data.data);
+      } catch (error) {
+        errorHandler(error, router);
+      }
     })();
   }, []);
 

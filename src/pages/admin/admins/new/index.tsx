@@ -4,6 +4,8 @@ import Form from "@/components/Form";
 import { useEffect, useState } from "react";
 import KintaiAuth from "@/api/KintaiAuth";
 import Router from "next/router";
+import { errorHandler } from "@/utils/errorHandler";
+import { useRouter } from "next/router";
 
 const rows = [
   {
@@ -38,6 +40,7 @@ type DataProps = {
 };
 
 export default function AdminAdminNew() {
+  const router = useRouter();
   const [data, setData] = useState<DataProps>({});
 
   useEffect(() => {
@@ -48,8 +51,12 @@ export default function AdminAdminNew() {
         data.password &&
         data.passwordConfirmation
       ) {
-        await KintaiAuth.createAdmin(data);
-        Router.push("/");
+        try {
+          await KintaiAuth.createAdmin(data);
+          Router.push("/");
+        } catch (error) {
+          errorHandler(error, router);
+        }
       }
     })();
   }, [data]);
