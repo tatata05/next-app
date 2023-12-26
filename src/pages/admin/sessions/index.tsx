@@ -1,7 +1,11 @@
 import Header from "@/components/Header";
 import MyHead from "@/components/MyHead";
 import Link from "next/link";
-import Form from "@/components/From";
+import Form from "@/components/Form";
+import Cookies from "js-cookie";
+import Router from "next/router";
+import KintaiAuth from "@/api/KintaiAuth";
+import { useEffect, useState } from "react";
 
 const rows = [
   {
@@ -16,14 +20,38 @@ const rows = [
   },
 ];
 
+type DataProps = {
+  email?: string;
+  password?: string;
+};
+
 export default function AdminSessions() {
+  const [data, setData] = useState<DataProps>({});
+
+  useEffect(() => {
+    (async () => {
+      if (data.email && data.password) {
+        const res = await KintaiAuth.signInAdmin(data);
+        Cookies.set("access-token", res.headers["access-token"]);
+        Cookies.set("client", res.headers["client"]);
+        Cookies.set("uid", res.headers["uid"]);
+        Router.push("/");
+      }
+    })();
+  }, [data]);
+
   return (
     <>
       <MyHead title="管理者ログイン" />
       <Header />
       <main className="text-center">
         <h2 className="mt-5 mb-3">管理者ログイン</h2>
-        <Form action="/" submitLabel="管理者としてログインする" rows={rows} />
+        <Form
+          action="/admin"
+          submitLabel="管理者としてログインする"
+          rows={rows}
+          setData={setData}
+        />
         <div className="mt-3">
           {/* TODO : 遷移先調整 */}
           <Link href="/">ゲスト管理者ログイン</Link>

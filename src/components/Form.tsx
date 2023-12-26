@@ -1,12 +1,12 @@
-import KintaiAuth from "@/api/KintaiAuth";
+import { Dispatch, SetStateAction } from "react";
 import RadioButton from "./RadioButton";
 import { useForm } from "react-hook-form";
-import Cookies from "js-cookie";
 
 type FormArray = {
   action: string;
   submitLabel: string;
   rows: FormProps[];
+  setData?: Dispatch<SetStateAction<object>>;
 };
 
 type FormProps = {
@@ -19,20 +19,25 @@ type FormProps = {
 type DataProps = {
   email?: string;
   password?: string;
+  name?: string;
+  passwordConfirmation?: string;
 };
 
-export default function From({ action, submitLabel, rows }: FormArray) {
-  const { handleSubmit, register } = useForm();
+export default function Form({
+  action,
+  submitLabel,
+  rows,
+  setData,
+}: FormArray) {
+  const {
+    handleSubmit,
+    register,
+    formState: { isValid },
+  } = useForm();
 
-  const onSubmit = async (data: DataProps) => {
-    try {
-      const res = await KintaiAuth.signInAdmin(data);
-      Cookies.set("access-token", res.headers["access-token"]);
-      Cookies.set("client", res.headers["client"]);
-      Cookies.set("uid", res.headers["uid"]);
-    } catch (error) {
-      console.log(error);
-    }
+  const onSubmit = (data: DataProps) => {
+    // typeエラーが出てしまうので、setData && としている。全てのページを修正できたら不必要になるはず
+    setData && setData(data);
   };
 
   return (
@@ -47,7 +52,10 @@ export default function From({ action, submitLabel, rows }: FormArray) {
               <input
                 type={row.type}
                 className="form-control"
-                {...register(`${row.registerLabel}`)}
+                {...register(`${row.registerLabel}`, {
+                  required: "必須入力です",
+                  minLength: row.type === "password" ? 6 : 1,
+                })}
               />
               <div className="form-text">{row.warningLabel}</div>
             </>
@@ -55,7 +63,12 @@ export default function From({ action, submitLabel, rows }: FormArray) {
         </div>
       ))}
       <div>
-        <button type="submit" className="btn btn-primary mt-4">
+        <button
+          type="submit"
+          className={
+            isValid ? "btn btn-primary mt-4" : "btn btn-primary mt-4 disabled"
+          }
+        >
           {submitLabel}
         </button>
       </div>
