@@ -19,6 +19,7 @@ export default function AdminHeader() {
         errorHandler(error, router);
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

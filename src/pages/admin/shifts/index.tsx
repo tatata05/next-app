@@ -30,6 +30,7 @@ export default function AdminShifts() {
         errorHandler(error, router);
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const shiftRows = useMemo(

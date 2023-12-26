@@ -45,6 +45,7 @@ export default function AdminSessions() {
         }
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   return (
