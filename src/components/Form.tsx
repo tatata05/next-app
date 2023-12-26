@@ -29,7 +29,11 @@ export default function Form({
   rows,
   setData,
 }: FormArray) {
-  const { handleSubmit, register } = useForm();
+  const {
+    handleSubmit,
+    register,
+    formState: { isValid },
+  } = useForm();
 
   const onSubmit = (data: DataProps) => {
     // typeエラーが出てしまうので、setData && としている。全てのページを修正できたら不必要になるはず
@@ -48,7 +52,10 @@ export default function Form({
               <input
                 type={row.type}
                 className="form-control"
-                {...register(`${row.registerLabel}`)}
+                {...register(`${row.registerLabel}`, {
+                  required: "必須入力です",
+                  minLength: row.type === "password" ? 6 : 1,
+                })}
               />
               <div className="form-text">{row.warningLabel}</div>
             </>
@@ -56,7 +63,12 @@ export default function Form({
         </div>
       ))}
       <div>
-        <button type="submit" className="btn btn-primary mt-4">
+        <button
+          type="submit"
+          className={
+            isValid ? "btn btn-primary mt-4" : "btn btn-primary mt-4 disabled"
+          }
+        >
           {submitLabel}
         </button>
       </div>
