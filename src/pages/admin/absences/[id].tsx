@@ -6,6 +6,7 @@ import StatusButton from "@/components/StatusButton";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { GetAbsenceForAdmin200ResponseData as Absence } from "@/api/typescript-axios";
+import { errorHandler } from "@/utils/errorHandler";
 
 export default function AdminAbsencesShow() {
   const router = useRouter();
@@ -21,7 +22,7 @@ export default function AdminAbsencesShow() {
         const absenceRes = await KintaiAdmin.getAbsenceForAdmin(id);
         setAbsence(absenceRes.data.data);
       } catch (error) {
-        // TODO: エラー処理と、その共通化
+        errorHandler(error, router);
       }
       setLoading(false);
     }
@@ -34,11 +35,15 @@ export default function AdminAbsencesShow() {
   type StatusProps = "approved" | "rejected";
 
   const changeStatus = async (afterStatus: StatusProps) => {
-    const id = Number(router.query.id);
-    await KintaiAdmin.updateAbsenceStatus(id, {
-      status: afterStatus,
-    });
-    fetchAbsence();
+    try {
+      const id = Number(router.query.id);
+      await KintaiAdmin.updateAbsenceStatus(id, {
+        status: afterStatus,
+      });
+      fetchAbsence();
+    } catch (error) {
+      errorHandler(error, router);
+    }
   };
 
   return (
